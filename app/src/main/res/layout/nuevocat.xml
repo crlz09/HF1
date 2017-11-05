@@ -1,0 +1,512 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_scrollFlags="enterAlways"
+    android:background="@android:color/white">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:id="@+id/bellezaCat"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:layout_marginLeft="2dp"
+                android:layout_marginRight="2dp"
+                android:layout_marginTop="2dp"
+                android:background="@drawable/belleza"
+                android:foreground="?attr/selectableItemBackground"
+                android:orientation="vertical"
+                android:clickable="true"
+                android:focusable="true"
+                android:soundEffectsEnabled="true">
+
+                <LinearLayout
+
+                    android:layout_width="350dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="right"
+                    android:layout_marginTop="100dp"
+                    android:background="#83000000"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="10dp"
+                        android:shadowColor="#000000"
+                        android:text="@string/Belleza"
+                        android:textColor="@color/Blanco"
+                        android:textSize="24sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="10dp"
+                        android:shadowColor="#000000"
+                        android:text="@string/BellezaDesc"
+                        android:textColor="@color/Blanco"
+                        android:textSize="16sp" />
+
+            </LinearLayout>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/cuidadorCat"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:layout_marginLeft="2dp"
+                android:layout_marginRight="2dp"
+                android:layout_marginTop="2dp"
+                android:background="@drawable/cuidador"
+                android:foreground="?attr/selectableItemBackground"
+                android:orientation="vertical"
+                android:clickable="true"
+                android:focusable="true"
+                android:soundEffectsEnabled="true">
+
+                <LinearLayout
+                    android:layout_width="350dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="right"
+                    android:layout_marginTop="100dp"
+                    android:background="#83000000"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="10dp"
+                        android:shadowColor="#000000"
+                        android:text="@string/Cuiddor"
+                        android:textColor="@color/Blanco"
+                        android:textSize="24sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="10dp"
+                        android:shadowColor="#000000"
+                        android:text="@string/CuidadorDesc"
+                        android:textColor="@color/Blanco"
+                        android:textSize="16sp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/deporteCat"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:layout_marginLeft="2dp"
+                android:layout_marginRight="2dp"
+                android:layout_marginTop="2dp"
+                android:background="@drawable/deportes"
+                android:foreground="?attr/selectableItemBackground"
+                android:orientation="vertical"
+                android:clickable="true"
+                android:focusable="true"
+                android:soundEffectsEnabled="true">
+
+                <LinearLayout
+                    android:layout_width="350dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="right"
+                    android:layout_marginTop="100dp"
+                    android:background="#83000000"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="10dp"
+                        android:shadowColor="#000000"
+                        android:text="@string/Deporte"
+                        android:textColor="@color/Blanco"
+                        android:textSize="24sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="10dp"
+                        android:shadowColor="#000000"
+                        android:text="@string/DeporteDesc"
+                        android:textColor="@color/Blanco"
+                        android:textSize="16sp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/entretenimientoCat"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:layout_marginLeft="2dp"
+                android:layout_marginRight="2dp"
+                android:layout_marginTop="2dp"
+                android:background="@drawable/entertainment"
+                android:foreground="?attr/selectableItemBackground"
+                android:orientation="vertical"
+                android:clickable="true"
+                android:focusable="true"
+                android:soundEffectsEnabled="true">
+
+                <LinearLayout
+                    android:layout_width="350dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="right"
+                    android:layout_marginTop="100dp"
+                    android:background="#83000000"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="10dp"
+                        android:shadowColor="#000000"
+                        android:text="@string/Entretenimiento"
+                        android:textColor="@color/Blanco"
+                        android:textSize="24sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="10dp"
+                        android:shadowColor="#000000"
+                        android:text="@string/EntretenimientoDesc"
+                        android:textColor="@color/Blanco"
+                        android:textSize="16sp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/hogarCat"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:layout_marginLeft="2dp"
+                android:layout_marginRight="2dp"
+                android:layout_marginTop="2dp"
+                android:background="@drawable/hogar"
+                android:foreground="?attr/selectableItemBackground"
+                android:orientation="vertical"
+                android:clickable="true"
+                android:focusable="true"
+                android:soundEffectsEnabled="true">
+
+                <LinearLayout
+                    android:layout_width="350dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="right"
+                    android:layout_marginTop="100dp"
+                    android:background="#83000000"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="10dp"
+                        android:shadowColor="#000000"
+                        android:text="@string/Hogar"
+                        android:textColor="@color/Blanco"
+                        android:textSize="24sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="10dp"
+                        android:shadowColor="#000000"
+                        android:text="@string/HogarDesc"
+                        android:textColor="@color/Blanco"
+                        android:textSize="16sp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/mascotasCat"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:layout_marginLeft="2dp"
+                android:layout_marginRight="2dp"
+                android:layout_marginTop="2dp"
+                android:background="@drawable/mascotas"
+                android:foreground="?attr/selectableItemBackground"
+                android:orientation="vertical"
+                android:clickable="true"
+                android:focusable="true"
+                android:soundEffectsEnabled="true">
+
+                <LinearLayout
+                    android:layout_width="350dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="right"
+                    android:layout_marginTop="100dp"
+                    android:background="#83000000"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="10dp"
+                        android:shadowColor="#000000"
+                        android:text="@string/Mascotas"
+                        android:textColor="@color/Blanco"
+                        android:textSize="24sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="10dp"
+                        android:shadowColor="#000000"
+                        android:text="@string/MascotasDesc"
+                        android:textColor="@color/Blanco"
+                        android:textSize="16sp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/otrosCat"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:layout_marginLeft="2dp"
+                android:layout_marginRight="2dp"
+                android:layout_marginTop="2dp"
+                android:background="@drawable/otros"
+                android:foreground="?attr/selectableItemBackground"
+                android:orientation="vertical"
+                android:clickable="true"
+                android:focusable="true"
+                android:soundEffectsEnabled="true">
+
+                <LinearLayout
+                    android:layout_width="350dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="right"
+                    android:layout_marginTop="100dp"
+                    android:background="#83000000"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="10dp"
+                        android:shadowColor="#000000"
+                        android:text="@string/Otros"
+                        android:textColor="@color/Blanco"
+                        android:textSize="24sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="10dp"
+                        android:shadowColor="#000000"
+                        android:text="@string/OtrosDesc"
+                        android:textColor="@color/Blanco"
+                        android:textSize="16sp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/profesoresCat"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:layout_marginLeft="2dp"
+                android:layout_marginRight="2dp"
+                android:layout_marginTop="2dp"
+                android:background="@drawable/profesor"
+                android:foreground="?attr/selectableItemBackground"
+                android:orientation="vertical"
+                android:clickable="true"
+                android:focusable="true"
+                android:soundEffectsEnabled="true">
+
+                <LinearLayout
+                    android:layout_width="350dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="right"
+                    android:layout_marginTop="100dp"
+                    android:background="#83000000"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="10dp"
+                        android:shadowColor="#000000"
+                        android:text="@string/Profesores"
+                        android:textColor="@color/Blanco"
+                        android:textSize="24sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="10dp"
+                        android:shadowColor="#000000"
+                        android:text="@string/ProfesoresDesc"
+                        android:textColor="@color/Blanco"
+                        android:textSize="16sp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/reparacionesCat"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:layout_marginLeft="2dp"
+                android:layout_marginRight="2dp"
+                android:layout_marginTop="2dp"
+                android:background="@drawable/reparacion"
+                android:foreground="?attr/selectableItemBackground"
+                android:orientation="vertical"
+                android:clickable="true"
+                android:focusable="true"
+                android:soundEffectsEnabled="true">
+
+                <LinearLayout
+                    android:layout_width="350dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="right"
+                    android:layout_marginTop="100dp"
+                    android:background="#83000000"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="10dp"
+                        android:shadowColor="#000000"
+                        android:text="@string/Reparaciones"
+                        android:textColor="@color/Blanco"
+                        android:textSize="24sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="10dp"
+                        android:shadowColor="#000000"
+                        android:text="@string/ReparacionesDesc"
+                        android:textColor="@color/Blanco"
+                        android:textSize="16sp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/saludCat"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:layout_marginLeft="2dp"
+                android:layout_marginRight="2dp"
+                android:layout_marginTop="2dp"
+                android:background="@drawable/salud"
+                android:foreground="?attr/selectableItemBackground"
+                android:orientation="vertical"
+                android:clickable="true"
+                android:focusable="true"
+                android:soundEffectsEnabled="true">
+
+                <LinearLayout
+                    android:layout_width="350dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="right"
+                    android:layout_marginTop="100dp"
+                    android:background="#83000000"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="10dp"
+                        android:shadowColor="#000000"
+                        android:text="@string/Salud"
+                        android:textColor="@color/Blanco"
+                        android:textSize="24sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="10dp"
+                        android:shadowColor="#000000"
+                        android:text="@string/SaludDesc"
+                        android:textColor="@color/Blanco"
+                        android:textSize="16sp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/transporteCat"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:layout_marginBottom="2dp"
+                android:layout_marginLeft="2dp"
+                android:layout_marginRight="2dp"
+                android:layout_marginTop="2dp"
+                android:background="@drawable/transporte"
+                android:foreground="?attr/selectableItemBackground"
+                android:orientation="vertical"
+                android:clickable="true"
+                android:focusable="true"
+                android:soundEffectsEnabled="true">
+
+                <LinearLayout
+                    android:layout_width="350dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="right"
+                    android:layout_marginTop="100dp"
+                    android:background="#83000000"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="10dp"
+                        android:shadowColor="#000000"
+                        android:text="@string/Transporte"
+                        android:textColor="@color/Blanco"
+                        android:textSize="24sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="10dp"
+                        android:shadowColor="#000000"
+                        android:text="@string/TransporteDesc"
+                        android:textColor="@color/Blanco"
+                        android:textSize="16sp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </ScrollView>
+</android.support.design.widget.CoordinatorLayout>

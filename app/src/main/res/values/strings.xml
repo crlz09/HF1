@@ -1,0 +1,66 @@
+<resources>
+    <string name="app_name">HF1</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="menu_Home">Inicio</string>
+    <string name="prueba_corta">Texto de prueba</string>
+    <string name="prueba_larga">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </string>
+    <string name="Respuesta">Escribe un mensaje</string>
+    <string name="Enviar">Enviar</string>
+    <string name="Usuario">Usuario</string>
+    <string name="Carlos">Carlos Molina</string>
+
+    <string name="Notificaciones">Notificaciones</string>
+    <string name="Favoritos">Favoritos</string>
+    <string name="MisAnuncios">Mis Anuncios</string>
+    <string name="MiCuenta">Mi Cuenta</string>
+    <string name="Configuracion">Configuracion</string>
+    <string name="Reportar">Reportar un problema</string>
+    <string name="Acerca">Acerca de</string>
+    <string name="Inbox">Mensajes</string>
+    <string name="Search">Buscar</string>
+
+
+
+    <string-array name="menuoptions">
+        <item>Inicio</item>
+        <item>Notificaciones</item>
+        <item>Favoritos</item>
+        <item>Mis Anuncios</item>
+        <item>Mi Cuenta</item>
+        <item>Configuracion</item>
+        <item>Reportar un problema</item>
+        <item>Acerca de</item>
+    </string-array>
+
+
+    <string name="Belleza">Belleza</string>
+    <string name="Cuiddor">Cuidador</string>
+    <string name="Deporte">Deporte</string>
+    <string name="Entretenimiento">Entretenimiento</string>
+    <string name="Hogar">Hogar</string>
+    <string name="Mascotas">Mascotas</string>
+    <string name="Otros">Otros</string>
+    <string name="Profesores">Profesores</string>
+    <string name="Reparaciones">Reparaciones</string>
+    <string name="Salud">Salud</string>
+    <string name="Transporte">Transporte</string>
+
+
+    <string name="BellezaDesc">Peluquería, manicure, tratamientos...</string>
+    <string name="CuidadorDesc">Cuidador de niños, de ancianos...</string>
+    <string name="DeporteDesc">Entrenamiento personal, boxeo, yoga...</string>
+    <string name="EntretenimientoDesc">Animación para fiestas, guías...</string>
+    <string name="HogarDesc">Limpieza, costura...</string>
+    <string name="MascotasDesc">Cuidado, paseo...</string>
+    <string name="OtrosDesc">Fotografía, artes gráficas, marketing...</string>
+    <string name="ProfesoresDesc">Cátedras, baile, música...</string>
+    <string name="ReparacionesDesc">Albañiles, carpinteros...</string>
+    <string name="SaludDesc">Medicina, enfermería...</string>
+    <string name="TransporteDesc">Mudanzas, paquetería...</string>
+
+
+</resources>

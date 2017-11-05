@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#00192B</color>
+    <color name="colorPrimaryDark">#01121C</color>
+    <color name="colorAccent">#36A9E0</color>
+    <color name="categRosa">#F46C6D</color>
+    <color name="categRosaOsc">#E84A47</color>
+    <color name="categCeleste">#4FC4D0</color>
+    <color name="categCelesteOsc">#2BA8B2</color>
+    <color name="categMorada">#7864AD</color>
+    <color name="categMoradaOsc">#554689</color>
+    <color name="categAmarilla">#FEC330</color>
+    <color name="categAmarillaOsc">#F6A100</color>
+    <color name="fondoCateg">#e0e0e0</color>
+    <color name="fondoResult">#cccccc</color>
+    <color name="grisBotones">#525354</color>
+    <color name="textsobreFondo">#666666</color>
+    <color name="Blanco">#ffffff</color>
+</resources>
