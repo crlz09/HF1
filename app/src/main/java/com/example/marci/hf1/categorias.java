@@ -26,7 +26,7 @@ public class categorias extends Fragment {
 
         View vista = inflater.inflate(R.layout.nuevocat, container, false);
 
-       /* Display display = getActivity().getWindowManager().getDefaultDisplay();
+       /*&& Display display = getActivity().getWindowManager().getDefaultDisplay();
         int stageWidth = display.getWidth();
 
         Toast.makeText(getContext(), ""+stageWidth, Toast.LENGTH_SHORT).show();
