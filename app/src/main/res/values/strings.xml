@@ -61,6 +61,23 @@
     <string name="ReparacionesDesc">Albañiles, carpinteros...</string>
     <string name="SaludDesc">Medicina, enfermería...</string>
     <string name="TransporteDesc">Mudanzas, paquetería...</string>
+    <string name="Desc">Mobile Developer</string>
+    <string name="Desc1">Niñera</string>
+    <string name="Desc2">Electricista</string>
+    <string name="Desc3">Profesor</string>
+    <string name="Nombre">Carlos Molina</string>
+    <string name="Nombre1">Claudio Abdule</string>
+    <string name="Nombre2">Mark Zuckerberg</string>
+    <string name="Nombre3">Miguel Sanchez</string>
+    <string name="Distancia">11km</string>
+    <string name="Distancia1">13km</string>
+    <string name="Distancia2">41km</string>
+    <string name="Distancia3">44km</string>
+    <string name="Ciudad">Maracaibo - Zulia</string>
+    <string name="Ciudad1">San Francisco - Zulia</string>
+    <string name="Ciudad2">Cabimas - Zulia</string>
+    <string name="nombre_transicion_imagen">imagen_compartida</string>
 
 
+    <string name="workana">hola estoy buscando programadores para empezar este proyecto que consta en una forma de pagar mas fácil y seguro, primero tendiéramos que hacer una aplicación que funcione en dos modalidades la primera como comprador y la segunda como vendedor en la primera te da la opción de guardar tus tarjetas... </string>
 </resources>

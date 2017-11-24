@@ -42,6 +42,7 @@ public class fragmentMain extends Fragment {
         viewPager.setAdapter(pagerAdapter);
         tabs.setupWithViewPager(viewPager);
 
+
         return view;
 
     }
@@ -56,14 +57,15 @@ public class fragmentMain extends Fragment {
         public ViewPagerAdapter(FragmentManager fragmentManager){
             super(fragmentManager);
         }
-        String[] tituloTabs={"CATEGORIAS", "DESTACADOS", "CERCA DE TI"};
+        String[] tituloTabs={"CATEGORIAS", "ANUNCIOS", "CERCA DE TI"};
 
         @Override
         public Fragment getItem(int position) {
             switch (position){
                 case 0: return new categorias();
-                case 1: return new destacados();
+                case 1: return new anuncio();
                 case 2: return new cercanos();
+               // case 3: return new destacados();
             }
 
             return null;
