@@ -8,9 +8,8 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:actionButtonStyle">@style/myActionButtonStyle</item>
         <item name="actionButtonStyle">@style/myActionButtonStyle</item>
-        
-    </style>
 
+    </style>
 
 
     <style name="myActionButtonStyle" parent="Widget.AppCompat.ActionButton">
@@ -30,6 +29,7 @@
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
     <dimen name="design_navigation_icon_size" tools:override="true">50dp</dimen>
-    <dimen tools:override="true" name="design_navigation_icon_padding">10dp</dimen>
+    <dimen name="design_navigation_icon_padding" tools:override="true">10dp</dimen>
 </resources>
