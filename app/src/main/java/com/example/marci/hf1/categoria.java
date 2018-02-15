@@ -16,17 +16,29 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 
-public class categoria extends AppCompatActivity {
-
+public class categoria extends AppCompatActivity implements OnMapReadyCallback {
+    Double lat, lon;
     TextView descripcion,tel1,tel2,ubi1,ubi2,correo1,correo2, tvHotCall;
     ImageView ivperfil;
     LinearLayout comentarios;
     RelativeLayout hotCall;
 
+    private GoogleMap mMap;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+       // MainActivity mainActivity = new MainActivity();
 
+        lat=MainActivity.lat;
+        lon=MainActivity.lon;
+
+        Toast.makeText(getApplicationContext(), ""+lat+"//"+lon, Toast.LENGTH_SHORT).show();
         String nombre = getIntent().getExtras().getString("nombre");
         int idimagen = getIntent().getExtras().getInt("idimagen");
 //
@@ -35,10 +47,14 @@ public class categoria extends AppCompatActivity {
 //        String distancia=getIntent().getExtras().getString("distancia");
 //        String correo=getIntent().getExtras().getString("correo");
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_categoria);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         this.setTitle(nombre);
+        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.map);
+        mapFragment.getMapAsync(this);
 //
 //        descripcion = (TextView) findViewById(R.id.tvInfoEmpresa);
 //        tel1=(TextView) findViewById(R.id.tvNumber1);
@@ -100,4 +116,13 @@ public class categoria extends AppCompatActivity {
        });
     }
 
+    public void onMapReady(GoogleMap googleMap) {
+        mMap = googleMap;
+
+
+        // Add a marker in Sydney and move the camera
+        LatLng sydney = new LatLng(lat, lon);
+        mMap.addMarker(new MarkerOptions().position(sydney).title("Aquí está"));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+    }
 }

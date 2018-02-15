@@ -82,4 +82,8 @@
     <string name="title_activity_servicio">servicio</string>
     <string name="title_activity_perfil">perfil</string>
     <string name="title_activity_comentarios">comentarios</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_maps">Map</string>
 </resources>
