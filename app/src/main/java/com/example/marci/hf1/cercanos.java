@@ -20,7 +20,6 @@ public class cercanos extends Fragment {
         GridView gridView = (GridView) vista.findViewById(R.id.grid);
         gridView.setAdapter(new GridAdapter(getContext()));
 
-
         return  vista;
     }
 

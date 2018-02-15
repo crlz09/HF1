@@ -1,5 +1,6 @@
 package com.example.marci.hf1;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.Display;
@@ -13,6 +14,8 @@ import android.widget.Toast;
 
 public class categorias extends Fragment {
 
+    LinearLayout belleza;
+
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
@@ -25,6 +28,17 @@ public class categorias extends Fragment {
         // Inflate the layout for this fragment
 
         View vista = inflater.inflate(R.layout.nuevocat, container, false);
+        belleza=(LinearLayout)vista.findViewById(R.id.bellezaCat);
+
+        belleza.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent vete = new Intent(getContext(),detalle_categorias.class);
+                vete.putExtra("nombre","Belleza");
+
+                startActivity(vete);
+            }
+        });
 
        /*&& Display display = getActivity().getWindowManager().getDefaultDisplay();
         int stageWidth = display.getWidth();

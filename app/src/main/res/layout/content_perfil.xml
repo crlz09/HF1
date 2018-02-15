@@ -7,7 +7,18 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.example.marci.hf1.perfil"
     tools:showIn="@layout/activity_perfil"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -21,7 +32,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:foregroundGravity="center"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_marginTop="70dp">
 
         <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
             android:id="@+id/profile_image"
@@ -133,9 +145,7 @@
 </LinearLayout>
 
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -201,10 +211,10 @@
             android:id="@+id/ivHabilidades"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
             android:layout_centerVertical="true"
-            android:layout_marginEnd="@dimen/activity_horizontal_margin"
-            android:layout_marginRight="@dimen/activity_horizontal_margin"
-            android:src="@drawable/ic_whatshot_black_24dp" />
+            android:src="@drawable/ic_format_list_bulleted_black_24dp" />
 
         <TextView
             android:id="@+id/tvHabilidades"
@@ -286,7 +296,7 @@
             android:layout_centerVertical="true"
             android:layout_marginEnd="@dimen/activity_horizontal_margin"
             android:layout_marginRight="@dimen/activity_horizontal_margin"
-            android:src="@drawable/ic_chrome_reader_mode_black_24dp" />
+            android:src="@drawable/ic_school_black_24dp" />
 
         <TextView
             android:id="@+id/tvEstudios"
@@ -324,5 +334,7 @@
     </RelativeLayout>
 
 </LinearLayout>
+        </LinearLayout>
+
     </ScrollView>
 </LinearLayout>
