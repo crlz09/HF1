@@ -1,0 +1,115 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/fondoCateg">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:id="@+id/llpublicacion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="end">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Miguel Sánchez"
+        android:id="@+id/publicante_dialog"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:layout_marginBottom="20dp"
+        android:paddingLeft="20dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="#000000"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="en Mecánica"
+        android:id="@+id/categoria_dialog"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:layout_marginBottom="20dp"
+        android:paddingRight="10dp"
+        android:paddingLeft="10dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textColor="#2e2e2e"/>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Me encuentro en la búsqueda de un mecánico automotriz con experiencia en vehiculos Renault, es de suma importancia que esté certificado y posea experiencia comprobable, se requiere la reparación de una flota de taxis arrumados."
+        android:id="@+id/text_dialog"
+        android:layout_below="@+id/llpublicacion"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:layout_marginBottom="20dp"
+        android:textSize="18sp"
+        android:textColor="#ff000000"
+        android:paddingLeft="15dp"
+        android:gravity="start" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CONTACTAR"
+        android:paddingLeft="@dimen/mini_fab_margin_left"
+        android:id="@+id/btn_dialog"
+        android:gravity="center_vertical|center_horizontal"
+        android:layout_below="@+id/text_dialog"
+        android:layout_marginBottom="20dp"
+        android:drawablePadding="10dp"
+        android:background="#0a4b87"
+        android:padding="10dp"
+        android:drawableLeft="@drawable/ic_phone_white_24dp"
+        android:layout_centerHorizontal="true"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="#ffffffff" />
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_below="@+id/btn_dialog"
+    android:weightSum="10"
+    >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="30 visitas"
+            android:id="@+id/tv_cantidad"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="4dp"
+            android:layout_marginRight="4dp"
+            android:layout_marginBottom="20dp"
+            android:textColor="#ff000000"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:paddingLeft="15dp"
+            android:gravity="start"
+            android:layout_weight="8"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Publicado hace 22 horas"
+            android:id="@+id/tv_tiempo"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="4dp"
+            android:layout_marginRight="4dp"
+            android:layout_marginBottom="20dp"
+            android:paddingStart="20dp"
+            android:textColor="#ff000000"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:paddingLeft="15dp"
+            android:gravity="right" />
+
+</LinearLayout>
+
+    </RelativeLayout>
+</ScrollView>

@@ -19,7 +19,7 @@
             android:orientation="vertical">
 
             <LinearLayout
-                android:id="@+id/anuncio_laypadre"
+                android:id="@+id/anuncio_laypadre1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@color/grisBotones"
@@ -42,7 +42,7 @@
                         android:orientation="horizontal">
 
                         <TextView
-                            android:id="@+id/IDusuarioTV"
+                            android:id="@+id/IDusuarioTV1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:paddingLeft="20sp"
@@ -100,7 +100,7 @@
                             android:paddingTop="10sp">
 
                             <TextView
-                                android:id="@+id/cantcomentTV"
+                                android:id="@+id/cantcomentTV1"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="20 Visitas"
@@ -108,7 +108,7 @@
                                 android:textSize="12sp" />
 
                             <TextView
-                                android:id="@+id/fechaTV"
+                                android:id="@+id/fechaTV1"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:paddingLeft="25sp"
@@ -126,7 +126,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/anuncio_laypadre"
+                android:id="@+id/anuncio_laypadre2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@color/grisBotones"
@@ -149,7 +149,7 @@
                         android:orientation="horizontal">
 
                         <TextView
-                            android:id="@+id/IDusuarioTV"
+                            android:id="@+id/IDusuarioTV2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:paddingLeft="20sp"
@@ -207,7 +207,7 @@
                             android:paddingTop="10sp">
 
                             <TextView
-                                android:id="@+id/cantcomentTV"
+                                android:id="@+id/cantcomentTV2"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="20 Visitas"
@@ -215,7 +215,7 @@
                                 android:textSize="12sp" />
 
                             <TextView
-                                android:id="@+id/fechaTV"
+                                android:id="@+id/fechaTV2"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:paddingLeft="25sp"
@@ -233,7 +233,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/anuncio_laypadre"
+                android:id="@+id/anuncio_laypadre3"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@color/grisBotones"
@@ -256,7 +256,7 @@
                         android:orientation="horizontal">
 
                         <TextView
-                            android:id="@+id/IDusuarioTV"
+                            android:id="@+id/IDusuarioTV3"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:paddingLeft="20sp"
@@ -314,7 +314,7 @@
                             android:paddingTop="10sp">
 
                             <TextView
-                                android:id="@+id/cantcomentTV"
+                                android:id="@+id/cantcomentTV3"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="20 Visitas"
@@ -322,7 +322,7 @@
                                 android:textSize="12sp" />
 
                             <TextView
-                                android:id="@+id/fechaTV"
+                                android:id="@+id/fechaTV3"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:paddingLeft="25sp"
