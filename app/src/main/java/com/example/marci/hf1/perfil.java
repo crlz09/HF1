@@ -1,12 +1,17 @@
 package com.example.marci.hf1;
 
 import android.os.Bundle;
+import android.support.design.internal.NavigationMenu;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.Toast;
+
+import io.github.yavski.fabspeeddial.FabSpeedDial;
 
 public class perfil extends AppCompatActivity {
 
@@ -26,51 +31,76 @@ public class perfil extends AppCompatActivity {
         setContentView(R.layout.activity_perfil);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        this.setTitle("Perfil del anunciante");
+        final FabSpeedDial fabSpeedDial = (FabSpeedDial) findViewById(R.id.fabSpeedDial);
+        fabSpeedDial.setMenuListener(new FabSpeedDial.MenuListener() {
 
-        fabSettings = (FloatingActionButton) this.findViewById(R.id.fab);
-
-        layoutFabSave = (LinearLayout) this.findViewById(R.id.layoutFabSave);
-        layoutFabEdit = (LinearLayout) this.findViewById(R.id.layoutFabSave1);
-        layoutFabPhoto = (LinearLayout) this.findViewById(R.id.layoutFabSave2);
-
-        //When main Fab (Settings) is clicked, it expands if not expanded already.
-        //Collapses if main FAB was open already.
-        //This gives FAB (Settings) open/close behavior
-        fabSettings.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                if (fabExpanded == true){
-                    closeSubMenusFab();
-                } else {
-                    openSubMenusFab();
-                }
+            public boolean onPrepareMenu(NavigationMenu navigationMenu) {
+
+                return true;
+            }
+
+            @Override
+            public boolean onMenuItemSelected(MenuItem menuItem) {
+                Toast.makeText(perfil.this, ""+menuItem.getTitle(), Toast.LENGTH_SHORT).show();
+                return true;
+            }
+
+            @Override
+            public void onMenuClosed() {
+
             }
         });
+//        fabSettings = (FloatingActionButton) this.findViewById(R.id.fab);
 
-        //Only main FAB is visible in the beginning
-        closeSubMenusFab();
+
+
+
+
+//        layoutFabSave = (LinearLayout) this.findViewById(R.id.layoutFabSave);
+//        layoutFabEdit = (LinearLayout) this.findViewById(R.id.layoutFabSave1);
+//        layoutFabPhoto = (LinearLayout) this.findViewById(R.id.layoutFabSave2);
+//
+//        //When main Fab (Settings) is clicked, it expands if not expanded already.
+//        //Collapses if main FAB was open already.
+//        //This gives FAB (Settings) open/close behavior
+//        fabSettings.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                if (fabExpanded == true){
+//                    closeSubMenusFab();
+//                } else {
+//                    openSubMenusFab();
+//                }
+//            }
+//        });
+//
+//        //Only main FAB is visible in the beginning
+//        closeSubMenusFab();
+//    }
+//
+//
+//    //closes FAB submenus
+//    private void closeSubMenusFab(){
+//        layoutFabSave.setVisibility(View.INVISIBLE);
+//        layoutFabEdit.setVisibility(View.INVISIBLE);
+//        layoutFabPhoto.setVisibility(View.INVISIBLE);
+//        fabSettings.setImageResource(R.drawable.ic_ring_volume_white_24px);
+//        fabExpanded = false;
+//    }
+//
+//    //Opens FAB submenus
+//    private void openSubMenusFab(){
+//        layoutFabSave.setVisibility(View.VISIBLE);
+//        layoutFabEdit.setVisibility(View.VISIBLE);
+//        layoutFabPhoto.setVisibility(View.VISIBLE);
+//        //Change settings icon to 'X' icon
+//        fabSettings.setImageResource(R.drawable.ic_clear_white_24px);
+//        fabExpanded = true;
+//    }
+
     }
-
-
-    //closes FAB submenus
-    private void closeSubMenusFab(){
-        layoutFabSave.setVisibility(View.INVISIBLE);
-        layoutFabEdit.setVisibility(View.INVISIBLE);
-        layoutFabPhoto.setVisibility(View.INVISIBLE);
-        fabSettings.setImageResource(R.drawable.ic_ring_volume_white_24px);
-        fabExpanded = false;
-    }
-
-    //Opens FAB submenus
-    private void openSubMenusFab(){
-        layoutFabSave.setVisibility(View.VISIBLE);
-        layoutFabEdit.setVisibility(View.VISIBLE);
-        layoutFabPhoto.setVisibility(View.VISIBLE);
-        //Change settings icon to 'X' icon
-        fabSettings.setImageResource(R.drawable.ic_clear_white_24px);
-        fabExpanded = true;
-    }
-
 
 
 
