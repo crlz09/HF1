@@ -1,5 +1,7 @@
 package com.example.marci.hf1;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.internal.NavigationMenu;
 import android.support.design.widget.FloatingActionButton;
@@ -43,7 +45,29 @@ public class perfil extends AppCompatActivity {
 
             @Override
             public boolean onMenuItemSelected(MenuItem menuItem) {
-                Toast.makeText(perfil.this, ""+menuItem.getTitle(), Toast.LENGTH_SHORT).show();
+               // Toast.makeText(perfil.this, ""+menuItem.getTitle(), Toast.LENGTH_SHORT).show();
+                String phone = "04146525464";
+                if (menuItem.getTitle().toString().equals("Llamar")){
+
+                    Intent intent = new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", phone, null));
+                    startActivity(intent);
+
+                }
+                if (menuItem.getTitle().toString().equals("SMS")){
+                    Intent intent = new Intent(Intent.ACTION_SENDTO);
+                    intent.putExtra("address", phone);
+                    intent.putExtra("sms_body", "He visto tu publicación en HazloFacil, ");
+                    intent.setData(Uri.parse("sms:"));
+                    startActivity(intent);
+
+                }
+                if (menuItem.getTitle().toString().equals("Correo")){
+                    Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
+                    emailIntent.setData(Uri.parse("mailto: carlosjmr12@gmail.com"));
+                    startActivity(Intent.createChooser(emailIntent, "He visto tu publicación en HazloFacil"));
+                }
+
+
                 return true;
             }
 

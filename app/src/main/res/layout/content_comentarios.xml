@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.example.marci.hf1.comentarios"
+    tools:showIn="@layout/activity_comentarios">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvBase"
+                android:paddingTop="@dimen/nav_header_vertical_spacing"
+                android:paddingBottom="@dimen/activity_vertical_margin"
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:layout_height="wrap_content"
+                android:text="Valoración de la publicación"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="#212121" />
+
+
+            <RatingBar
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:numStars="5"
+                android:rating="4.5"
+                android:isIndicator="true"
+                />
+
+        </LinearLayout>
+
+        <include layout="@layout/item_divider" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <TextView
+        android:id="@+id/tvCantidadComentarios"
+        android:paddingTop="2dp"
+        android:paddingBottom="2dp"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_height="wrap_content"
+        android:text="Basado en 5 comentarios"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textColor="#212121" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackground"
+        android:clickable="true"
+        android:padding="@dimen/activity_horizontal_margin">
+
+        <ImageView
+            android:id="@+id/ivInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:src="@drawable/ic_thumb_up_black_24dp" />
+
+        <TextView
+            android:id="@+id/tvInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_toEndOf="@id/ivInfo"
+            android:layout_toRightOf="@id/ivInfo"
+            android:text="Excelente servicio!"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="#212121" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvInfo"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_marginTop="2dp"
+            android:layout_toEndOf="@id/ivInfo"
+            android:layout_toRightOf="@id/ivInfo"
+            android:text="Por: sanchezmj228"
+            android:id="@+id/tvUser"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="#727272" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvUser"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_marginTop="8dp"
+            android:layout_toEndOf="@id/ivInfo"
+            android:layout_toRightOf="@id/ivInfo"
+            android:text="Servicio de calidad, roza la excelencia, mi nevera quedó enfriando como nunca y sin ningún ruido. Recomendado al 100%"
+            android:id="@+id/tvInfoEmpresa"
+            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+            android:textColor="#727272" />
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackground"
+        android:clickable="true"
+        android:padding="@dimen/activity_horizontal_margin">
+
+        <ImageView
+            android:id="@+id/ivInfo1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:src="@drawable/ic_thumb_down_black_24dp" />
+
+        <TextView
+            android:id="@+id/tvInfo1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_toEndOf="@id/ivInfo1"
+            android:layout_toRightOf="@id/ivInfo1"
+            android:text="Deja que desear"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="#212121" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvInfo1"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_marginTop="2dp"
+            android:layout_toEndOf="@id/ivInfo1"
+            android:layout_toRightOf="@id/ivInfo1"
+            android:text="Por: sanchezmj228"
+            android:id="@+id/tvUser1"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="#727272" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvUser1"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_marginTop="8dp"
+            android:layout_toEndOf="@id/ivInfo1"
+            android:layout_toRightOf="@id/ivInfo1"
+            android:text="No pudo solventar el inconveniente que presentaba mi equipo, se excusó y no fue claro."
+            android:id="@+id/tvInfoEmpresa1"
+            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+            android:textColor="#727272" />
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackground"
+        android:clickable="true"
+        android:padding="@dimen/activity_horizontal_margin">
+
+        <ImageView
+            android:id="@+id/ivInfo2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:src="@drawable/ic_thumb_up_black_24dp" />
+
+        <TextView
+            android:id="@+id/tvInfo2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_toEndOf="@id/ivInfo2"
+            android:layout_toRightOf="@id/ivInfo2"
+            android:text="Excelente servicio!"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="#212121" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvInfo2"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_marginTop="2dp"
+            android:layout_toEndOf="@id/ivInfo2"
+            android:layout_toRightOf="@id/ivInfo2"
+            android:text="Por: sanchezmj228"
+            android:id="@+id/tvUser2"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="#727272" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvUser2"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_marginTop="8dp"
+            android:layout_toEndOf="@id/ivInfo2"
+            android:layout_toRightOf="@id/ivInfo2"
+            android:text="Servicio de calidad, roza la excelencia, mi nevera quedó enfriando como nunca y sin ningún ruido. Recomendado al 100%"
+            android:id="@+id/tvInfoEmpresa2"
+            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+            android:textColor="#727272" />
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackground"
+        android:clickable="true"
+        android:padding="@dimen/activity_horizontal_margin">
+
+        <ImageView
+            android:id="@+id/ivInfo3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:src="@drawable/ic_thumb_up_black_24dp" />
+
+        <TextView
+            android:id="@+id/tvInfo3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_toEndOf="@id/ivInfo3"
+            android:layout_toRightOf="@id/ivInfo3"
+            android:text="Excelente servicio!"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="#212121" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvInfo3"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_marginTop="2dp"
+            android:layout_toEndOf="@id/ivInfo3"
+            android:layout_toRightOf="@id/ivInfo3"
+            android:text="Por: sanchezmj228"
+            android:id="@+id/tvUser3"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="#727272" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvUser3"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_marginTop="8dp"
+            android:layout_toEndOf="@id/ivInfo3"
+            android:layout_toRightOf="@id/ivInfo3"
+            android:text="Servicio de calidad, roza la excelencia, mi nevera quedó enfriando como nunca y sin ningún ruido. Recomendado al 100%"
+            android:id="@+id/tvInfoEmpresa3"
+            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+            android:textColor="#727272" />
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackground"
+        android:clickable="true"
+        android:padding="@dimen/activity_horizontal_margin">
+
+        <ImageView
+            android:id="@+id/ivInfo4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:src="@drawable/ic_thumb_up_black_24dp" />
+
+        <TextView
+            android:id="@+id/tvInfo4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_toEndOf="@id/ivInfo4"
+            android:layout_toRightOf="@id/ivInfo4"
+            android:text="Excelente servicio!"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="#212121" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvInfo4"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_marginTop="2dp"
+            android:layout_toEndOf="@id/ivInfo4"
+            android:layout_toRightOf="@id/ivInfo4"
+            android:text="Por: sanchezmj228"
+            android:id="@+id/tvUser4"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="#727272" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvUser4"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_marginTop="8dp"
+            android:layout_toEndOf="@id/ivInfo4"
+            android:layout_toRightOf="@id/ivInfo4"
+            android:text="Servicio de calidad, roza la excelencia, mi nevera quedó enfriando como nunca y sin ningún ruido. Recomendado al 100%"
+            android:id="@+id/tvInfoEmpresa4"
+            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+            android:textColor="#727272" />
+
+    </RelativeLayout>
+
+
+    </LinearLayout>
+        </ScrollView>
+
+
+    <include layout="@layout/item_divider" />
+
+
+
+
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>

@@ -11,8 +11,7 @@
 
     </style>
 
-    <style name="RatingBar"
-        parent="android:style/Widget.Material.RatingBar">
+    <style name="RatingBar" parent="android:style/Widget.Material.RatingBar">
         <item name="colorControlNormal">@color/Blanco</item>
         <item name="colorControlActivated">@color/colorAccent</item>
     </style>

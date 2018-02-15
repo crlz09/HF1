@@ -2,6 +2,7 @@ package com.example.marci.hf1;
 
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -9,15 +10,19 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 
 public class categoria extends AppCompatActivity {
 
-    TextView descripcion,tel1,tel2,ubi1,ubi2,correo1,correo2;
+    TextView descripcion,tel1,tel2,ubi1,ubi2,correo1,correo2, tvHotCall;
     ImageView ivperfil;
-
+    LinearLayout comentarios;
+    RelativeLayout hotCall;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,5 +72,32 @@ public class categoria extends AppCompatActivity {
 
         // ivperfil= (ImageView) findViewById(R.id.IVperfil);
        /* Glide.with(getApplicationContext()).load(img).into(ivperfil);*/
+
+       comentarios= (LinearLayout) findViewById(R.id.valoracionLL);
+
+       comentarios.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+
+               Intent vete = new Intent(getApplicationContext(),comentarios.class);
+              //pasar idpub para cargar comentarios de esa pub (?)
+               startActivity(vete);
+           }
+       });
+
+
+       hotCall = (RelativeLayout) findViewById(R.id.RLHotCall);
+        tvHotCall=(TextView) findViewById(R.id.tvHotCall);
+
+       hotCall.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               String phone = tvHotCall.getText().toString();
+               Intent intent = new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", phone, null));
+               startActivity(intent);
+
+           }
+       });
     }
+
 }

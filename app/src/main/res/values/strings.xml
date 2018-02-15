@@ -81,4 +81,5 @@
     <string name="workana">hola estoy buscando programadores para empezar este proyecto que consta en una forma de pagar mas fácil y seguro, primero tendiéramos que hacer una aplicación que funcione en dos modalidades la primera como comprador y la segunda como vendedor en la primera te da la opción de guardar tus tarjetas... </string>
     <string name="title_activity_servicio">servicio</string>
     <string name="title_activity_perfil">perfil</string>
+    <string name="title_activity_comentarios">comentarios</string>
 </resources>
