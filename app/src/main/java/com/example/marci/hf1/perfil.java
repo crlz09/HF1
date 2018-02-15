@@ -62,9 +62,15 @@ public class perfil extends AppCompatActivity {
 
                 }
                 if (menuItem.getTitle().toString().equals("Correo")){
-                    Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
-                    emailIntent.setData(Uri.parse("mailto: carlosjmr12@gmail.com"));
-                    startActivity(Intent.createChooser(emailIntent, "He visto tu publicación en HazloFacil"));
+                    String to = "carlosjmr12@gmail.com";
+                    String subject= "Vi tu anuncio en HazloFacil";
+                    String body="Vi tu anuncio en HazloFacil, ";
+                    String mailTo = "mailto:" + to +
+                            "?&subject=" + Uri.encode(subject) +
+                            "&body=" + Uri.encode(body);
+                    Intent emailIntent = new Intent(Intent.ACTION_VIEW);
+                    emailIntent.setData(Uri.parse(mailTo));
+                    startActivity(emailIntent);
                 }
 
 
