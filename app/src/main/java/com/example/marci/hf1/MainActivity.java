@@ -44,6 +44,7 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     public static Double lon, lat;
+    public static String ultimadireccion;
     String direccion, Text,locat;
     Button general, cerca;
 
@@ -218,7 +219,9 @@ public class MainActivity extends AppCompatActivity
                     Address DirCalle = list.get(0);
                     direccion="Mi direccion es: \n"
                             + DirCalle.getAddressLine(0);
-                    Toast.makeText(this, "Lon: "+lon + "\n" + "Lat: "+lat + "\n" + "\n" + direccion, Toast.LENGTH_LONG).show();
+
+                   // Toast.makeText(this, "Lon: "+lon + "\n" + "Lat: "+lat + "\n" + "\n" + direccion, Toast.LENGTH_LONG).show();
+                    ultimadireccion=direccion;
                 }
 
             } catch (IOException e) {

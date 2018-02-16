@@ -37,8 +37,7 @@ public class categoria extends AppCompatActivity implements OnMapReadyCallback {
 
         lat=MainActivity.lat;
         lon=MainActivity.lon;
-
-        Toast.makeText(getApplicationContext(), ""+lat+"//"+lon, Toast.LENGTH_SHORT).show();
+       // Toast.makeText(getApplicationContext(), ""+lat+"//"+lon, Toast.LENGTH_SHORT).show();
         String nombre = getIntent().getExtras().getString("nombre");
         int idimagen = getIntent().getExtras().getInt("idimagen");
 //
@@ -124,5 +123,9 @@ public class categoria extends AppCompatActivity implements OnMapReadyCallback {
         LatLng sydney = new LatLng(lat, lon);
         mMap.addMarker(new MarkerOptions().position(sydney).title("Aquí está"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        mMap.animateCamera( CameraUpdateFactory.zoomTo( 14.0f ) );
+
+        Toast.makeText(this, ""+MainActivity.ultimadireccion.toString(), Toast.LENGTH_SHORT).show();
+
     }
 }

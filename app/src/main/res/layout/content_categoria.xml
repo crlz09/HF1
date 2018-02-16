@@ -349,16 +349,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
                 tools:context="com.example.marci.hf1.MapsActivity"/>
-
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
-                android:scaleType="centerCrop"
-                android:src="@drawable/basic_ui"
-                android:visibility="invisible"/>
         </LinearLayout>
 
 
