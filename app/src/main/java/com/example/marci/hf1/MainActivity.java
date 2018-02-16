@@ -1,6 +1,7 @@
 package com.example.marci.hf1;
 
 import android.Manifest;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -36,9 +37,22 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.VolleyLog;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.JsonObjectRequest;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
+
+import app.AppController;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -47,7 +61,22 @@ public class MainActivity extends AppCompatActivity
     public static String ultimadireccion;
     String direccion, Text,locat;
     Button general, cerca;
+    // json object response url
+    private String urlJsonObj = "https://api.androidhive.info/volley/person_object.json";
 
+    // json array response url
+    private String urlJsonArry = "https://api.androidhive.info/volley/person_array.json";
+
+    private static String TAG = MainActivity.class.getSimpleName();
+    private Button btnMakeObjectRequest, btnMakeArrayRequest;
+
+    // Progress dialog
+    private ProgressDialog pDialog;
+
+    private TextView txtResponse;
+
+    // temporary string to show the parsed response
+    private String jsonResponse;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,7 +91,8 @@ public class MainActivity extends AppCompatActivity
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION,}, 1000);
         } else {
-            locationStart();
+
+            //aqui el json?
         }
 
 
@@ -81,10 +111,13 @@ public class MainActivity extends AppCompatActivity
 
 
         }
+//dialog
+        pDialog = new ProgressDialog(this);
+        pDialog.setMessage("Filtrando cercanos...");
+        pDialog.setCancelable(false);
 
 
-
-
+        makeJsonArrayRequest();
 
         /*FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
 
@@ -282,5 +315,145 @@ public class MainActivity extends AppCompatActivity
             }
         }
     }
+
+
+
+    //dialog
+    private void showpDialog() {
+        if (!pDialog.isShowing())
+            pDialog.show();
+    }
+
+    private void hidepDialog() {
+        if (pDialog.isShowing())
+            pDialog.dismiss();
+    }
+
+
+
+    //object y array request:
+
+    private void makeJsonObjectRequest() {
+
+        showpDialog();
+
+        JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET,
+                urlJsonObj, null, new Response.Listener<JSONObject>() {
+
+            @Override
+            public void onResponse(JSONObject response) {
+                Log.d(TAG, response.toString());
+
+                try {
+                    // Parsing json object response
+                    // response will be a json object
+                    String name = response.getString("name");
+                    String email = response.getString("email");
+                    JSONObject phone = response.getJSONObject("phone");
+                    String home = phone.getString("home");
+                    String mobile = phone.getString("mobile");
+
+                    jsonResponse = "";
+                    jsonResponse += "Name: " + name + "\n\n";
+                    jsonResponse += "Email: " + email + "\n\n";
+                    jsonResponse += "Home: " + home + "\n\n";
+                    jsonResponse += "Mobile: " + mobile + "\n\n";
+
+                    Toast.makeText(MainActivity.this, ""+jsonResponse, Toast.LENGTH_LONG).show();
+                  // txtResponse.setText(jsonResponse);
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    Toast.makeText(getApplicationContext(),
+                            "Error: " + e.getMessage(),
+                            Toast.LENGTH_LONG).show();
+                }
+                hidepDialog();
+            }
+        }, new Response.ErrorListener() {
+
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                VolleyLog.d(TAG, "Error: " + error.getMessage());
+                Toast.makeText(getApplicationContext(),
+                        error.getMessage(), Toast.LENGTH_SHORT).show();
+                // hide the progress dialog
+                hidepDialog();
+            }
+        });
+
+        // Adding request to request queue
+        AppController.getInstance().addToRequestQueue(jsonObjReq);
+    }
+
+
+
+
+
+    private void makeJsonArrayRequest() {
+
+        showpDialog();
+
+        JsonArrayRequest req = new JsonArrayRequest(urlJsonArry,
+                new Response.Listener<JSONArray>() {
+                    @Override
+                    public void onResponse(JSONArray response) {
+                        Log.d(TAG, response.toString());
+
+                        try {
+                            // Parsing json array response
+                            // loop through each json object
+                            jsonResponse = "";
+                            for (int i = 0; i < response.length(); i++) {
+
+                                JSONObject person = (JSONObject) response
+                                        .get(i);
+
+                                String name = person.getString("name");
+                                String email = person.getString("email");
+                                JSONObject phone = person
+                                        .getJSONObject("phone");
+                                String home = phone.getString("home");
+                                String mobile = phone.getString("mobile");
+
+                                jsonResponse += "Name: " + name + "\n\n";
+                                jsonResponse += "Email: " + email + "\n\n";
+                                jsonResponse += "Home: " + home + "\n\n";
+                                jsonResponse += "Mobile: " + mobile + "\n\n\n";
+
+                            }
+                            Toast.makeText(MainActivity.this, ""+jsonResponse, Toast.LENGTH_LONG).show();
+                         //   txtResponse.setText(jsonResponse);
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                            Toast.makeText(getApplicationContext(),
+                                    "Error: " + e.getMessage(),
+                                    Toast.LENGTH_LONG).show();
+                        }
+
+                        hidepDialog();
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                VolleyLog.d(TAG, "Error: " + error.getMessage());
+                Toast.makeText(getApplicationContext(),
+                        error.getMessage(), Toast.LENGTH_SHORT).show();
+                hidepDialog();
+            }
+        });
+
+        // Adding request to request queue
+      //  AppController.getInstance().addToRequestQueue(req);
+    }
+
+
+
+
+
+
+
+
 
 }
