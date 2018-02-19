@@ -36,4 +36,13 @@
 
     <dimen name="design_navigation_icon_size" tools:override="true">50dp</dimen>
     <dimen name="design_navigation_icon_padding" tools:override="true">10dp</dimen>
+
+    <style name="RatingBar_style" parent="@android:style/Widget.RatingBar">
+        <item name="android:minHeight">5dp</item>
+        <item name="android:maxHeight">20dp</item>
+        <item name="android:height">10dp</item>
+        <item name="android:width">10dp</item>
+    </style>
+
+
 </resources>

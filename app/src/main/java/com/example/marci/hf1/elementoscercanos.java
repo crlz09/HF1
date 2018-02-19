@@ -1,16 +1,21 @@
 package com.example.marci.hf1;
 
+import android.app.Activity;
+
+import java.util.ArrayList;
+
 /**
  * Created by marci on 19/11/2017.
  */
 
-public class elementoscercanos {
+public class elementoscercanos extends Activity{
     private String nombre;
     private int idDrawable;
     private String profesion;
     private String ciudad;
     private String distancia;
     private int idUbi;
+
 
     public elementoscercanos(String nombre, int idDrawable, String profesion, String ciudad, String distancia, int idUbi) {
         this.nombre = nombre;
@@ -56,6 +61,7 @@ public class elementoscercanos {
 
 
     public static elementoscercanos[] ITEMS = {
+
             new elementoscercanos("Primer Lugar", R.drawable.finalocho, "Cafe", "Buenos Aires", "11km", R.drawable.pin),
             new elementoscercanos("Segundo Lugar", R.drawable.finaldos,"Restaurant", "Buenos Aires", "14km", R.drawable.pin),
             new elementoscercanos("Tercer Lugar", R.drawable.finaltres,"Restaurant", "Buenos Aires", "21km", R.drawable.pin),

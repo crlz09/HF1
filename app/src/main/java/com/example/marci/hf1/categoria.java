@@ -11,6 +11,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RatingBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -24,11 +25,13 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 public class categoria extends AppCompatActivity implements OnMapReadyCallback {
-    Double lat, lon;
-    TextView descripcion,tel1,tel2,ubi1,ubi2,correo1,correo2, tvHotCall;
+    Double lat, lon,latitud,longitud;
+    TextView tvdescripcion,tel1,tel2,ubi1,ubi2,correo1,correo2, tvHotCall;
     ImageView ivperfil;
     LinearLayout comentarios;
+    TextView tvciudad,tvprecio,tvformapago,tvexperiencia,tvfechapub,tvzonas;
     RelativeLayout hotCall;
+    RatingBar ratingBar;
 
     private GoogleMap mMap;
     @Override
@@ -37,9 +40,41 @@ public class categoria extends AppCompatActivity implements OnMapReadyCallback {
 
         lat=MainActivity.lat;
         lon=MainActivity.lon;
-       // Toast.makeText(getApplicationContext(), ""+lat+"//"+lon, Toast.LENGTH_SHORT).show();
+     //   Toast.makeText(getApplicationContext(), ""+lat+"//"+lon, Toast.LENGTH_SHORT).show();
+
+        String idservidor = getIntent().getExtras().getString("idservidor");
+        String cat = getIntent().getExtras().getString("cat");
         String nombre = getIntent().getExtras().getString("nombre");
-        int idimagen = getIntent().getExtras().getInt("idimagen");
+        String ciudad = getIntent().getExtras().getString("ciudad");
+        String estado = getIntent().getExtras().getString("estado");
+        String descripcion = getIntent().getExtras().getString("descripcion");
+        String precio = getIntent().getExtras().getString("precio");
+        String formapago = getIntent().getExtras().getString("formapago");
+        String experiencia = getIntent().getExtras().getString("experiencia");
+        String zonas = getIntent().getExtras().getString("zonas");
+        String reputacion = getIntent().getExtras().getString("reputacion");
+        final String telefono = getIntent().getExtras().getString("telefono");
+         latitud = getIntent().getExtras().getDouble("latitud");
+         longitud = getIntent().getExtras().getDouble("longitud");
+        String distance = getIntent().getExtras().getString("distance");
+        int idimagen = getIntent().getExtras().getInt("imagen");
+
+       /* vete.putExtra("idservidor",idservidores.get(position));
+        vete.putExtra("cat",cats.get(position));
+        vete.putExtra("nombre",nombrespre.get(position));
+        vete.putExtra("ciudad",ciudadespre.get(position));
+        vete.putExtra("estado",estados.get(position));
+        vete.putExtra("descripcion",descripciones.get(position));
+        vete.putExtra("precio",precios.get(position));
+        vete.putExtra("formapago",formapagos.get(position));
+        vete.putExtra("experiencia",experiencias.get(position));
+        vete.putExtra("zonas",zonass.get(position));
+        vete.putExtra("reputacion",profesionespre.get(position));
+        vete.putExtra("telefono",telefonos.get(position));
+        vete.putExtra("latitud",latitudes.get(position));
+        vete.putExtra("longitud",longitudes.get(position));
+        vete.putExtra("distance",distancespre.get(position));*/
+
 //
 //        String tel = getIntent().getExtras().getString("tel");
 //        String ciudad = getIntent().getExtras().getString("ciudad");
@@ -88,7 +123,36 @@ public class categoria extends AppCompatActivity implements OnMapReadyCallback {
         // ivperfil= (ImageView) findViewById(R.id.IVperfil);
        /* Glide.with(getApplicationContext()).load(img).into(ivperfil);*/
 
-       comentarios= (LinearLayout) findViewById(R.id.valoracionLL);
+    tvdescripcion=(TextView) findViewById(R.id.tvDescripcion);
+    tvciudad=(TextView) findViewById(R.id.tvCiudadEstado);
+    tvprecio=(TextView) findViewById(R.id.tvPrecio);
+    tvformapago=(TextView) findViewById(R.id.tvFormapago);
+    tvexperiencia=(TextView) findViewById(R.id.tvExperiencia);
+    tvfechapub=(TextView) findViewById(R.id.tvFechapub);
+    tvzonas=(TextView) findViewById(R.id.tvZonas);
+    ratingBar=(RatingBar) findViewById(R.id.RBreputacion);
+
+
+    //FALTA COMENTARIOS Y FECHA DE PUBLICACION
+
+    tvdescripcion.setText(descripcion);
+    tvciudad.setText(ciudad+" - "+estado+" - A "+distance+" KM DE TI");
+    tvprecio.setText(precio);
+    tvformapago.setText(formapago);
+    tvexperiencia.setText(experiencia);
+    tvfechapub.setText("Hace 2 semanas");
+    tvzonas.setText(zonas);
+    ratingBar.setRating(Float.parseFloat(reputacion));
+
+
+
+
+
+
+
+
+
+        comentarios= (LinearLayout) findViewById(R.id.valoracionLL);
 
        comentarios.setOnClickListener(new View.OnClickListener() {
            @Override
@@ -108,7 +172,7 @@ public class categoria extends AppCompatActivity implements OnMapReadyCallback {
            @Override
            public void onClick(View v) {
                String phone = tvHotCall.getText().toString();
-               Intent intent = new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", phone, null));
+               Intent intent = new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", telefono, null));
                startActivity(intent);
 
            }
@@ -120,12 +184,12 @@ public class categoria extends AppCompatActivity implements OnMapReadyCallback {
 
 
         // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(lat, lon);
+        LatLng sydney = new LatLng(latitud, longitud);
         mMap.addMarker(new MarkerOptions().position(sydney).title("Aquí está"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
         mMap.animateCamera( CameraUpdateFactory.zoomTo( 14.0f ) );
 
-        Toast.makeText(this, ""+MainActivity.ultimadireccion.toString(), Toast.LENGTH_SHORT).show();
+      //  Toast.makeText(this, ""+MainActivity.ultimadireccion.toString(), Toast.LENGTH_SHORT).show();
 
     }
 }

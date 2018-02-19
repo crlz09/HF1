@@ -42,6 +42,7 @@
                 android:textColor="#212121" />
 
             <TextView
+                android:id="@+id/tvDescripcion"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tvInfo"
@@ -51,7 +52,6 @@
                 android:layout_toEndOf="@id/ivInfo"
                 android:layout_toRightOf="@id/ivInfo"
                 android:text="Técnico de mantenimiento en refrigeración y electricidad industrial, con años de experiencia y reputación ganada a través de trabajo duro, consultar sin compromiso"
-                android:id="@+id/tvInfoEmpresa"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
                 android:textColor="#727272" />
 
@@ -87,6 +87,7 @@
                 android:textColor="#212121" />
 
             <TextView
+                android:id="@+id/tvCiudadEstado"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tvUbicacion"
@@ -96,7 +97,6 @@
                 android:layout_toEndOf="@id/ivUbicacion"
                 android:layout_toRightOf="@id/ivUbicacion"
                 android:text="Maracaibo - Zulia"
-                android:id="@+id/tvubiDesc"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
                 android:textColor="#727272" />
 
@@ -145,15 +145,16 @@
                 android:layout_toEndOf="@id/ivContactItem1"
                 android:layout_toRightOf="@id/ivContactItem1"
                 android:text="60.000 BsF/ hora"
-                android:id="@+id/tvPago1"
+                android:id="@+id/tvPrecio"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
                 android:textColor="#727272" />
 
 
             <TextView
+                android:id="@+id/tvFormapago"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/tvPago1"
+                android:layout_below="@id/tvPrecio"
                 android:layout_marginLeft="@dimen/activity_horizontal_margin"
                 android:layout_marginStart="@dimen/activity_horizontal_margin"
                 android:layout_marginTop="8dp"
@@ -198,6 +199,7 @@
                 android:textColor="#212121" />
 
             <TextView
+                android:id="@+id/tvExperiencia"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/tvNumber2"
@@ -242,6 +244,7 @@
                 android:textColor="#212121" />
 
             <TextView
+                android:id="@+id/tvFechapub"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/tvDuracion"
@@ -290,6 +293,7 @@
                 android:textColor="#212121" />
 
             <TextView
+                android:id="@+id/tvZonas"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/tvNumber3"
@@ -400,6 +404,7 @@
                 android:orientation="vertical">
 
                 <RatingBar
+                    android:id="@+id/RBreputacion"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -409,7 +414,7 @@
 
 
                 <TextView
-                    android:id="@+id/comenTV"
+                    android:id="@+id/tvComentarios"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="20dp"

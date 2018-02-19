@@ -40,6 +40,8 @@ public class categorias extends Fragment {
             }
         });
 
+        
+
        /*&& Display display = getActivity().getWindowManager().getDefaultDisplay();
         int stageWidth = display.getWidth();
 
