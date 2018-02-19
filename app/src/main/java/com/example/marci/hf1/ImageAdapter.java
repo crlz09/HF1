@@ -23,13 +23,13 @@ import com.bumptech.glide.request.target.SimpleTarget;
 
 public class ImageAdapter extends BaseAdapter {
 
-    private ArrayList<Integer> images;
+    private ArrayList<String> images;
     private ArrayList<String> nombres,profesiones,ciudades,cats;
     private ArrayList<String> distances;
     LayoutInflater inflater;
     private Context context;
 
-    public ImageAdapter(Context context, ArrayList<String> nombre, ArrayList<Integer> drawables, ArrayList<String> profesion,
+    public ImageAdapter(Context context, ArrayList<String> nombre, ArrayList<String> drawables, ArrayList<String> profesion,
                         ArrayList<String> ciudad, ArrayList<String> distancia,ArrayList<String> cats) {
 
 

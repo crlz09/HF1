@@ -50,7 +50,7 @@ public class cercanos extends Fragment {
     // temporary string to show the parsed response
     private String jsonResponse;
 
-    String idservidor,cat,nombre,ciudad,estado,descripcion,precio,formapago,experiencia,zonas,reputacion,telefono;
+    String idservidor,cat,nombre,ciudad,estado,descripcion,precio,formapago,experiencia,zonas,reputacion,telefono,imag;
     Double latitud,longitud,distance;
 
     public static ArrayList<Integer> images;
@@ -188,26 +188,7 @@ public class cercanos extends Fragment {
                     public void onResponse(JSONArray response) {
                         Log.d(TAG, response.toString());
 
-                        int imagenesdefault [] = {R.drawable.launo,R.drawable.lados,R.drawable.latres,R.drawable.lacuatro,R.drawable.lacinco,R.drawable.laseis,
-                                R.drawable.lasiete,R.drawable.laocho,R.drawable.launo,
-                                R.drawable.launo,R.drawable.lados,R.drawable.latres,R.drawable.lacuatro,R.drawable.lacinco,R.drawable.laseis,
-                                R.drawable.lasiete,R.drawable.laocho,R.drawable.launo,
-                                R.drawable.launo,R.drawable.lados,R.drawable.latres,R.drawable.lacuatro,R.drawable.lacinco,R.drawable.laseis,
-                                R.drawable.lasiete,R.drawable.laocho,R.drawable.launo,
-                                R.drawable.launo,R.drawable.lados,R.drawable.latres,R.drawable.lacuatro,R.drawable.lacinco,R.drawable.laseis,
-                                R.drawable.lasiete,R.drawable.laocho,R.drawable.launo,
-                                R.drawable.launo,R.drawable.lados,R.drawable.latres,R.drawable.lacuatro,R.drawable.lacinco,R.drawable.laseis,
-                                R.drawable.lasiete,R.drawable.laocho,R.drawable.launo,
-                                R.drawable.launo,R.drawable.lados,R.drawable.latres,R.drawable.lacuatro,R.drawable.lacinco,R.drawable.laseis,
-                                R.drawable.lasiete,R.drawable.laocho,R.drawable.launo,
-                                R.drawable.launo,R.drawable.lados,R.drawable.latres,R.drawable.lacuatro,R.drawable.lacinco,R.drawable.laseis,
-                                R.drawable.lasiete,R.drawable.laocho,R.drawable.launo,
-                                R.drawable.launo,R.drawable.lados,R.drawable.latres,R.drawable.lacuatro,R.drawable.lacinco,R.drawable.laseis,
-                                R.drawable.lasiete,R.drawable.laocho,R.drawable.launo,
-                                R.drawable.launo,R.drawable.lados,R.drawable.latres,R.drawable.lacuatro,R.drawable.lacinco,R.drawable.laseis,
-                                R.drawable.lasiete,R.drawable.laocho,R.drawable.launo,
-                                R.drawable.launo,R.drawable.lados,R.drawable.latres,R.drawable.lacuatro,R.drawable.lacinco,R.drawable.laseis,
-                                R.drawable.lasiete,R.drawable.laocho,R.drawable.launo};
+
 
                         try {
                             // Parsing json array response
@@ -233,6 +214,7 @@ public class cercanos extends Fragment {
                             final ArrayList<Integer> imagespre =new ArrayList<>();
                             final ArrayList<String> profesionespre=new ArrayList<>();
                             final ArrayList<String> distancespre=new ArrayList<>();
+                            final ArrayList<String> imagenes = new ArrayList<>();
 
                             for (int i = 0; i < response.length(); i++) {
 
@@ -253,9 +235,8 @@ public class cercanos extends Fragment {
                                 latitud = person.getDouble("lat");
                                 longitud = person.getDouble("lng");
                                 distance = person.getDouble("distance");
-
+                                imag = person.getString("imagen");
                                 String distauxiliar= distance.toString().substring(0,3);
-                                imagespre.add(imagenesdefault[i]);
 
                                 idservidores.add(idservidor);
                                 catspre.add(cat);
@@ -272,10 +253,10 @@ public class cercanos extends Fragment {
                                 latitudes.add(latitud);
                                 longitudes.add(longitud);
                                 distancespre.add(distauxiliar);
+                                imagenes.add(imag);
                             }
 
                             //datos para grid
-                            images=imagespre;
                             nombres=nombrespre;
                             profesiones=profesionespre;
                             ciudades=ciudadespre;
@@ -284,14 +265,14 @@ public class cercanos extends Fragment {
 
                             //datos para intent
                             gridView.setAdapter(new ImageAdapter(getContext(),
-                                    nombres,images,profesiones,ciudades,distances,cats));
+                                    nombres,imagenes,profesiones,ciudades,distances,cats));
 
                             gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                                 @Override
                                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
                                     Intent vete = new Intent(getContext(),categoria.class);
-                                    vete.putExtra("imagen",imagespre.get(position));
+                                    vete.putExtra("imagen",imagenes.get(position));
                                     vete.putExtra("idservidor",idservidores.get(position));
                                     vete.putExtra("cat",cats.get(position));
                                     vete.putExtra("nombre",nombrespre.get(position));

@@ -57,7 +57,7 @@ public class categoria extends AppCompatActivity implements OnMapReadyCallback {
          latitud = getIntent().getExtras().getDouble("latitud");
          longitud = getIntent().getExtras().getDouble("longitud");
         String distance = getIntent().getExtras().getString("distance");
-        int idimagen = getIntent().getExtras().getInt("imagen");
+        String idimagen = getIntent().getExtras().getString("imagen");
 
        /* vete.putExtra("idservidor",idservidores.get(position));
         vete.putExtra("cat",cats.get(position));
@@ -98,12 +98,12 @@ public class categoria extends AppCompatActivity implements OnMapReadyCallback {
 //        ubi1=(TextView) findViewById(R.id.tvNumber5);
 //      //  ubi2=(TextView) findViewById(R.id.tvNumber6);
 //
-        Drawable drawable =getResources().getDrawable(idimagen);
+
         ivperfil= (ImageView) findViewById(R.id.IVperfil);
 //        descripcion.setText("Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam magni consequatur architecto nobis neque atque, officia laudantium cum dolore tempora eius nam repudiandae blanditiis consectetur");
 
 
-        Glide.with(getApplicationContext()).load("").placeholder(idimagen).centerCrop().into(ivperfil);
+        Glide.with(getApplicationContext()).load(idimagen).centerCrop().into(ivperfil);
 
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
