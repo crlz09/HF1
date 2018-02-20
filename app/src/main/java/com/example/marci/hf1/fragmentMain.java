@@ -31,17 +31,15 @@ public class fragmentMain extends Fragment {
         View view = inflater.inflate(R.layout.fragment_mainmain, container, false);
 
         View contenedor=(View)container.getParent();
-        appBar=(AppBarLayout)contenedor.findViewById(R.id.appbar);
+        appBar=contenedor.findViewById(R.id.appbar);
         tabs=new TabLayout(getActivity());
         tabs.setTabTextColors(Color.parseColor("#FFFFFF"), Color.parseColor("#FFFFFF"));
         appBar.addView(tabs);
 
-
-        viewPager=(ViewPager)view.findViewById(R.id.pager);
+        viewPager=view.findViewById(R.id.pager);
         ViewPagerAdapter pagerAdapter=new ViewPagerAdapter(getFragmentManager());
         viewPager.setAdapter(pagerAdapter);
         tabs.setupWithViewPager(viewPager);
-
 
         return view;
 

@@ -2,6 +2,7 @@ package com.example.marci.hf1;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -31,9 +32,9 @@ public class categoria_result extends AppCompatActivity {
 
     // json object response url
     private String urlJsonObj = "https://api.androidhive.info/volley/person_object.json";
-
     private String urlJsonArry = "http://www.ksfactory.com.ve/cercanos.php?cercat=&cat=";
-
+    private String urlsola="http://www.ksfactory.com.ve/cercanos.php?categoria=&cat=";
+    private String urlfinal;
     private static String TAG = MainActivity.class.getSimpleName();
 
     // Progress dialog
@@ -62,11 +63,15 @@ public class categoria_result extends AppCompatActivity {
         cate = getIntent().getExtras().getString("categoria");
         lon=MainActivity.lon;
         lat=MainActivity.lat;
+
         pDialog = new ProgressDialog(categoria_result.this);
         pDialog.setMessage("Filtrando cercanos...");
         pDialog.setCancelable(false);
         makeJsonArrayRequest();
         System.out.println(jsonResponse);
+
+        }
+
 
 
       /*  FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -77,7 +82,7 @@ public class categoria_result extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });*/
-    }
+
 
     //dialog
     private void showpDialog() {
@@ -155,7 +160,9 @@ public class categoria_result extends AppCompatActivity {
     private void makeJsonArrayRequest() {
 
         showpDialog();
-        String urlfinal= urlJsonArry+cate+"&lat="+lat+"&lng="+lon;
+        if(lat!=null) {urlfinal= urlJsonArry+cate+"&lat="+lat+"&lng="+lon;
+        } else urlfinal=urlsola+cate;
+
         System.out.println(urlfinal);
         // Toast.makeText(getContext(), ""+urlfinal, Toast.LENGTH_LONG).show();
         JsonArrayRequest req = new JsonArrayRequest(urlfinal,
@@ -208,10 +215,18 @@ public class categoria_result extends AppCompatActivity {
                                 telefono = person.getString("telefono");
                                 latitud = person.getDouble("lat");
                                 longitud = person.getDouble("lng");
-                                distance = person.getDouble("distance");
-                                imag = person.getString("imagen");
-                                String distauxiliar= distance.toString().substring(0,3);
 
+                                imag = person.getString("imagen");
+                                String distauxiliar="";
+                                try {
+                                    distance = person.getDouble("distance");
+                                    if(distance!=null){
+                                        distauxiliar= distance.toString().substring(0,3);}
+                                        else {distauxiliar="N/A";}
+
+                                } catch (Exception exception){
+                                    distauxiliar="N/A ";
+                                }
 
                                 idservidores.add(idservidor);
                                 catspre.add(cat);
@@ -238,9 +253,13 @@ public class categoria_result extends AppCompatActivity {
                             distances=distancespre;
                             cats=catspre;
 
-                            //datos para intent
                             gridView.setAdapter(new ImageAdapter(getApplicationContext(),
                                     nombres,imagenes,profesiones,ciudades,distances,cats));
+
+
+
+                            //datos para intent
+
 
                             gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                                 @Override
@@ -262,6 +281,7 @@ public class categoria_result extends AppCompatActivity {
                                     vete.putExtra("telefono",telefonos.get(position));
                                     vete.putExtra("latitud",latitudes.get(position));
                                     vete.putExtra("longitud",longitudes.get(position));
+
                                     vete.putExtra("distance",distancespre.get(position));
 
                                     startActivity(vete);
@@ -273,18 +293,6 @@ public class categoria_result extends AppCompatActivity {
                                 }
                             });
 
-
-
-
-
-
-
-
-
-
-
-
-
                         } catch (JSONException e) {
                             e.printStackTrace();
                             Toast.makeText(getApplicationContext(),
@@ -293,6 +301,17 @@ public class categoria_result extends AppCompatActivity {
                         }
 
                         hidepDialog();
+                        final Snackbar mySnackbar = Snackbar.make(findViewById(R.id.coordinator),
+                                "Resultados sin GPS", Snackbar.LENGTH_LONG);
+                        mySnackbar.setAction("ENTENDIDO", new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                mySnackbar.dismiss();
+                            }
+                        });
+                        mySnackbar.show();
+
+
                     }
                 }, new Response.ErrorListener() {
             @Override
@@ -308,6 +327,9 @@ public class categoria_result extends AppCompatActivity {
         Volley.newRequestQueue(getApplicationContext()).add(req);
     }
 
+    public void nada(){
+        Toast.makeText(this, "Le diste a entendido", Toast.LENGTH_SHORT).show();
+    }
 
 
 }

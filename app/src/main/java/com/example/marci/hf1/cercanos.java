@@ -1,10 +1,16 @@
 package com.example.marci.hf1;
 
+import android.Manifest;
+import android.app.Activity;
+import android.app.Dialog;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
 import android.media.Image;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -12,6 +18,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Adapter;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.GridView;
 import android.widget.Toast;
 
@@ -30,29 +37,20 @@ import org.json.JSONObject;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
-
 public class cercanos extends Fragment {
-
 
     // json object response url
     private String urlJsonObj = "https://api.androidhive.info/volley/person_object.json";
-
     // json array response url
     private String urlJsonArry = "http://www.ksfactory.com.ve/cercanos.php?cercanos=&";
-
     private static String TAG = MainActivity.class.getSimpleName();
-
     // Progress dialog
     private ProgressDialog pDialog;
-
     public  Double lon, lat;
-
     // temporary string to show the parsed response
     private String jsonResponse;
-
     String idservidor,cat,nombre,ciudad,estado,descripcion,precio,formapago,experiencia,zonas,reputacion,telefono,imag;
     Double latitud,longitud,distance;
-
     public static ArrayList<Integer> images;
     public static ArrayList<String> nombres,profesiones,ciudades,distances,cats;
     public GridView gridView;
@@ -63,46 +61,18 @@ public class cercanos extends Fragment {
         // Inflate the layout for this fragment
         View vista= inflater.inflate(R.layout.nuevocer, container, false);
         gridView = vista.findViewById(R.id.grid);
-
         lon=MainActivity.lon;
         lat=MainActivity.lat;
-
-
-
-
-        pDialog = new ProgressDialog(getContext());
-        pDialog.setMessage("Filtrando cercanos...");
-        pDialog.setCancelable(false);
-        makeJsonArrayRequest();
-        System.out.println(jsonResponse);
-        /*//        if (jsonResponse.equals("yes")){
-            Toast.makeText(getContext(), "YESSSS", Toast.LENGTH_SHORT).show();
-
- //       }*/
-
-
-        //CONTROLAR EL JSON PARA CUANDO LOCATION OFF
-
-         //   Toast.makeText(getContext(), "JSONEEEE", Toast.LENGTH_SHORT).show();
-
-
-
-//            Context context, ArrayList<String> nombre, ArrayList<Integer> drawables, ArrayList<String> profesion,
-//                    ArrayList<String> ciudad, ArrayList<Double> distancia) {
-
-
-
-
-
-
-
-
+        if (lat!=null){
+            pDialog = new ProgressDialog(getContext());
+            pDialog.setMessage("Filtrando cercanos...");
+            pDialog.setCancelable(false);
+            makeJsonArrayRequest();
+            System.out.println(jsonResponse);
+        } else { showDialog(getActivity());
+        }
         return  vista;
     }
-
-
-
-
     //dialog
     private void showpDialog() {
         if (!pDialog.isShowing())
@@ -114,38 +84,18 @@ public class cercanos extends Fragment {
             pDialog.dismiss();
     }
 
-
-
-    //object y array request:
-
     private void makeJsonObjectRequest() {
-
         showpDialog();
-
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET,
                 urlJsonObj, null, new Response.Listener<JSONObject>() {
 
             @Override
             public void onResponse(JSONObject response) {
                 Log.d(TAG, response.toString());
-
                 try {
                     // Parsing json object response
                     // response will be a json object
                     String name = response.getString("name");
-                    String email = response.getString("email");
-                    JSONObject phone = response.getJSONObject("phone");
-                    String home = phone.getString("home");
-                    String mobile = phone.getString("mobile");
-
-                    jsonResponse = "";
-                    jsonResponse += "Name: " + name + "\n\n";
-                    jsonResponse += "Email: " + email + "\n\n";
-                    jsonResponse += "Home: " + home + "\n\n";
-                    jsonResponse += "Mobile: " + mobile + "\n\n";
-
-                    Toast.makeText(getContext(), ""+jsonResponse, Toast.LENGTH_LONG).show();
-                    // txtResponse.setText(jsonResponse);
 
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -166,38 +116,22 @@ public class cercanos extends Fragment {
                 hidepDialog();
             }
         });
-
         // Adding request to request queue
         jsonObjReq.setShouldCache(false);
         Volley.newRequestQueue(getContext()).add(jsonObjReq);
     }
 
-
-
-
-
     private void makeJsonArrayRequest() {
-
         showpDialog();
         String urlfinal= urlJsonArry+"lat="+lat+"&lng="+lon;
         System.out.println(urlfinal);
-       // Toast.makeText(getContext(), ""+urlfinal, Toast.LENGTH_LONG).show();
         JsonArrayRequest req = new JsonArrayRequest(urlfinal,
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
                         Log.d(TAG, response.toString());
-
-
-
                         try {
-                            // Parsing json array response
-                            // loop through each json object
                             jsonResponse = "yes";
-                            // Toast.makeText(MainActivity.this, "entro", Toast.LENGTH_SHORT).show();
-                            //hidepDialog();
-
-                       //     System.out.println(jsonResponse);
                             final ArrayList<String>idservidores=new ArrayList<>();
                             ArrayList<String> catspre=new ArrayList<>();
                             final ArrayList<String> nombrespre=new ArrayList<>();
@@ -217,7 +151,6 @@ public class cercanos extends Fragment {
                             final ArrayList<String> imagenes = new ArrayList<>();
 
                             for (int i = 0; i < response.length(); i++) {
-
                                 JSONObject person = (JSONObject) response
                                         .get(i);
                                 idservidor = person.getString("idservidor");
@@ -255,14 +188,12 @@ public class cercanos extends Fragment {
                                 distancespre.add(distauxiliar);
                                 imagenes.add(imag);
                             }
-
                             //datos para grid
                             nombres=nombrespre;
                             profesiones=profesionespre;
                             ciudades=ciudadespre;
                             distances=distancespre;
                             cats=catspre;
-
                             //datos para intent
                             gridView.setAdapter(new ImageAdapter(getContext(),
                                     nombres,imagenes,profesiones,ciudades,distances,cats));
@@ -270,7 +201,6 @@ public class cercanos extends Fragment {
                             gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                                 @Override
                                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
                                     Intent vete = new Intent(getContext(),categoria.class);
                                     vete.putExtra("imagen",imagenes.get(position));
                                     vete.putExtra("idservidor",idservidores.get(position));
@@ -288,35 +218,15 @@ public class cercanos extends Fragment {
                                     vete.putExtra("latitud",latitudes.get(position));
                                     vete.putExtra("longitud",longitudes.get(position));
                                     vete.putExtra("distance",distancespre.get(position));
-
                                     startActivity(vete);
-
-
-
-                                    // Toast.makeText(cercanos.this, "Tocaste un grid", Toast.LENGTH_SHORT).show();
-
                                 }
                             });
-
-
-
-
-
-
-
-
-
-
-
-
-
                         } catch (JSONException e) {
                             e.printStackTrace();
                             Toast.makeText(getContext(),
                                     "Error: " + e.getMessage(),
                                     Toast.LENGTH_LONG).show();
                         }
-
                         hidepDialog();
                     }
                 }, new Response.ErrorListener() {
@@ -328,10 +238,26 @@ public class cercanos extends Fragment {
                 hidepDialog();
             }
         });
-
         req.setShouldCache(false);
         Volley.newRequestQueue(getContext()).add(req);
     }
 
-
+    public void showDialog(final Activity activity){
+        final Dialog dialog = new Dialog(activity);
+        dialog.setCancelable(true);
+        View view  = activity.getLayoutInflater().inflate(R.layout.alertdialog, null);
+        dialog.setContentView(view);
+        Button dialogButton = dialog.findViewById(R.id.btnAlert);
+        dialog.show();
+        dialogButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS));
+                dialog.dismiss();
+                startActivity(new Intent(getContext(),MainActivity.class));
+            }
+        });
+        dialog.show();
+        dialog.setCanceledOnTouchOutside(true);
+    }
 }
