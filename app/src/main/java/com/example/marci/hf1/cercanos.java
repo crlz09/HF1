@@ -61,18 +61,35 @@ public class cercanos extends Fragment {
         // Inflate the layout for this fragment
         View vista= inflater.inflate(R.layout.nuevocer, container, false);
         gridView = vista.findViewById(R.id.grid);
-        lon=MainActivity.lon;
-        lat=MainActivity.lat;
-        if (lat!=null){
-            pDialog = new ProgressDialog(getContext());
-            pDialog.setMessage("Filtrando cercanos...");
-            pDialog.setCancelable(false);
-            makeJsonArrayRequest();
-            System.out.println(jsonResponse);
-        } else { showDialog(getActivity());
-        }
         return  vista;
     }
+
+    @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
+
+
+        if (isVisibleToUser) {
+            // load data here
+           // Toast.makeText(getContext(), "Vista en cercanos USERVISIBLE", Toast.LENGTH_LONG).show();
+
+            lon=MainActivity.lon;
+            lat=MainActivity.lat;
+            if (lat!=null){
+                pDialog = new ProgressDialog(getContext());
+                pDialog.setMessage("Filtrando cercanos...");
+                pDialog.setCancelable(false);
+                makeJsonArrayRequest();
+                System.out.println(jsonResponse);
+            } else { showDialog(getActivity());
+            }
+
+        }else{
+            // fragment is no longer visible
+        }
+    }
+
+
     //dialog
     private void showpDialog() {
         if (!pDialog.isShowing())

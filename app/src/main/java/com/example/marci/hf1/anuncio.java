@@ -55,18 +55,31 @@ public class anuncio extends Fragment {
         // Inflate the layout for this fragment
         View vista= inflater.inflate(R.layout.fragment_anuncio, container, false);
         raiz= vista.findViewById(R.id.anuncio_laypadre);
-        pDialog = new ProgressDialog(getContext());
-        pDialog.setMessage("Cargando últimos anuncios...");
-        pDialog.setCancelable(false);
-        makeJsonArrayRequest();
-
+      //  Toast.makeText(getContext(), "Vista en ANUNCIOS oncreateview", Toast.LENGTH_LONG).show();
 
 
         return  vista;
 
     }
 
-//DIALOG:------------------------------------------------------------------
+    @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
+
+        if (isVisibleToUser) {
+            //Toast.makeText(getContext(), "Vista en anuncios USERVISIBLE", Toast.LENGTH_LONG).show();
+
+            // load data here
+            pDialog = new ProgressDialog(getContext());
+            pDialog.setMessage("Cargando últimos anuncios...");
+            pDialog.setCancelable(false);
+            makeJsonArrayRequest();
+        }else{
+            // fragment is no longer visible
+        }
+    }
+
+
 
     public void showDialog(final Activity activity, final String tit, final String msg, final String cate, final String num, final String fec, final String visit, final String nom){
         final Dialog dialog = new Dialog(getActivity());
