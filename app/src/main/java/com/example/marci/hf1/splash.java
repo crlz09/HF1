@@ -82,7 +82,7 @@ public class splash extends Activity{
         videoSplash.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
             @Override
             public void onCompletion(MediaPlayer mediaPlayer) {
-                startActivity(new Intent(splash.this, MainActivity.class));
+                startActivity(new Intent(splash.this, LoginActivity.class));
                 finish();
             }
         });

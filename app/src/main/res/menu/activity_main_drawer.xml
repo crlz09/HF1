@@ -8,17 +8,19 @@
             android:icon="@drawable/home_icon"
             android:title="@string/menu_Home" />
         <item
-            android:id="@+id/menu_notif"
-            android:icon="@drawable/notif_icon"
-            android:title="@string/Notificaciones" />
-        <item
             android:id="@+id/menu_fav"
             android:icon="@drawable/fav_icon"
             android:title="@string/Favoritos" />
+
+        <item
+            android:id="@+id/menu_notif"
+            android:icon="@drawable/notif_icon"
+            android:title="@string/MisAnuncios" />
+
         <item
             android:id="@+id/misAnuncios"
             android:icon="@drawable/anuncios_icon"
-            android:title="@string/MisAnuncios" />
+            android:title="Mis Servicios" />
         <item
             android:id="@+id/miCuenta"
             android:icon="@drawable/myaccount_icon"
@@ -30,10 +32,11 @@
     <group android:checkableBehavior="single"
         android:id="@+id/group2">
 
-        <item
+        <!--<item
             android:id="@+id/menuconfig"
             android:icon="@drawable/config_icon"
-            android:title="@string/Configuracion" />
+            android:title="@string/Configuracion" />-->
+
         <item
             android:id="@+id/menureport"
             android:icon="@drawable/troubleshoot_icon"

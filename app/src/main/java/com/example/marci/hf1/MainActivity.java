@@ -173,11 +173,12 @@ public class MainActivity extends AppCompatActivity
             fragmentManager.beginTransaction().replace(R.id.contenedor,new cercanos()).commit();
         } else if (id == R.id.miCuenta) {
 
-/*
-        } else if (id == R.id.nav_send) {
-*/
+        } else if (id == R.id.menureport) {
+
+        } else if (id == R.id.menuacercade) {
 
         }
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

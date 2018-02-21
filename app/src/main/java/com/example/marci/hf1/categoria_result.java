@@ -301,15 +301,23 @@ public class categoria_result extends AppCompatActivity {
                         }
 
                         hidepDialog();
-                        final Snackbar mySnackbar = Snackbar.make(findViewById(R.id.coordinator),
-                                "Resultados sin GPS", Snackbar.LENGTH_LONG);
-                        mySnackbar.setAction("ENTENDIDO", new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                mySnackbar.dismiss();
-                            }
-                        });
-                        mySnackbar.show();
+
+
+
+
+                        if(lat!=null) {
+                        } else {
+                            final Snackbar mySnackbar = Snackbar.make(findViewById(R.id.coordinator),
+                                    "Resultados sin GPS", Snackbar.LENGTH_LONG);
+                            mySnackbar.setAction("ENTENDIDO", new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    mySnackbar.dismiss();
+                                }
+                            });
+                            mySnackbar.show();
+
+                        }
 
 
                     }
