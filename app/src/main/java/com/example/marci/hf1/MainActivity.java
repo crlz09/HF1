@@ -41,12 +41,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
+import com.bumptech.glide.Glide;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
 import app.AppController;
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -55,9 +58,9 @@ public class MainActivity extends AppCompatActivity
     public static String ultimadireccion;
     String direccion, Text,locat;
     Button general, cerca;
-
-
-
+    public static int idusuario;
+    public static String imagenfinal,nombreuserfinal;
+    Boolean llego=false;
 
 
     public static ArrayList<String> Anomnbre,Aprofesion,Aciudad,Adistancia;
@@ -70,6 +73,35 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        if ((getIntent().getExtras().getInt("id"))>0){
+            llego=true;
+            idusuario=getIntent().getExtras().getInt("id");
+            nombreuserfinal=getIntent().getExtras().getString("nombre");
+            imagenfinal=getIntent().getExtras().getString("imagen");
+
+            final Snackbar mySnackbar = Snackbar.make(findViewById(R.id.drawer_layout),
+                    "Accediste como "+nombreuserfinal, Snackbar.LENGTH_LONG);
+            mySnackbar.setAction("ENTENDIDO", new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    mySnackbar.dismiss();
+                }
+            });
+            mySnackbar.show();
+
+
+        } else {
+            final Snackbar mySnackbar = Snackbar.make(findViewById(R.id.drawer_layout),
+                    "No has iniciado sesión", Snackbar.LENGTH_LONG);
+            mySnackbar.setAction("ENTENDIDO", new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    mySnackbar.dismiss();
+                }
+            });
+            mySnackbar.show();
+        }
 
 
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
@@ -115,7 +147,20 @@ public class MainActivity extends AppCompatActivity
         drawer.setDrawerListener(toggle);
         toggle.syncState();
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+
         navigationView.setNavigationItemSelectedListener(this);
+
+
+        View header = navigationView.getHeaderView(0);
+
+        TextView navuser= header.findViewById(R.id.profile_name_nav);
+        CircleImageView imageView = header.findViewById(R.id.profile_image_nav);
+        if (llego){
+                navuser.setText(nombreuserfinal);
+               Glide.with(getApplicationContext()).load(imagenfinal).centerCrop().into(imageView);
+
+        }
+
 
         FragmentManager fragmentManager= getSupportFragmentManager();
 

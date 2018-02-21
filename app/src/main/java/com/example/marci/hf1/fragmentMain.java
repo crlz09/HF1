@@ -35,15 +35,21 @@ public class fragmentMain extends Fragment {
         tabs=new TabLayout(getActivity());
         tabs.setTabTextColors(Color.parseColor("#FFFFFF"), Color.parseColor("#FFFFFF"));
         appBar.addView(tabs);
-
         viewPager=view.findViewById(R.id.pager);
         ViewPagerAdapter pagerAdapter=new ViewPagerAdapter(getFragmentManager());
         viewPager.setAdapter(pagerAdapter);
+        viewPager.setOffscreenPageLimit(1);
         tabs.setupWithViewPager(viewPager);
+
+
+
 
         return view;
 
     }
+
+
+
 
     @Override
     public void onDestroyView() {
