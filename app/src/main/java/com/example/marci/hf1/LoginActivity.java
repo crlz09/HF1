@@ -3,6 +3,7 @@ package com.example.marci.hf1;
 import android.app.Activity;
 import android.app.Dialog;
 import android.app.ProgressDialog;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -47,13 +48,19 @@ public class LoginActivity extends AppCompatActivity {
     public int idfinal;
     private ProgressDialog pDialog;
     public Boolean correcto=false;
-
+    TextView hazlofacil, hazlodesc;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_main);
+        getSupportActionBar().hide();
         ButterKnife.bind(this);
-
+        Typeface face=Typeface.createFromAsset(getAssets(),"fonts/Track.ttf");
+        hazlofacil=findViewById(R.id.hazlofacilTV);
+        hazlodesc=findViewById(R.id.hazlodesc);
+        hazlofacil.setTypeface(face);
+        hazlodesc.setTypeface(face);
+        this.setTitle("");
         _loginButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
