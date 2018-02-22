@@ -48,7 +48,7 @@ public class categoria_result extends AppCompatActivity {
     String idservidor,cat,nombre,ciudad,estado,descripcion,precio,formapago,experiencia,zonas,reputacion,telefono,imag;
     Double latitud,longitud,distance;
     public String cate;
-    public static ArrayList<Integer> images;
+    public static ArrayList<Integer> idusuarios;
     public static ArrayList<String> nombres,profesiones,ciudades,distances,cats;
     public GridView gridView;
 
@@ -197,6 +197,8 @@ public class categoria_result extends AppCompatActivity {
                             final ArrayList<String> profesionespre=new ArrayList<>();
                             final ArrayList<String> distancespre=new ArrayList<>();
                             final ArrayList<String> imagenes = new ArrayList<>();
+                            final ArrayList<Integer> idusuario=new ArrayList<>();
+
                             for (int i = 0; i < response.length(); i++) {
 
                                 JSONObject person = (JSONObject) response
@@ -215,6 +217,7 @@ public class categoria_result extends AppCompatActivity {
                                 telefono = person.getString("telefono");
                                 latitud = person.getDouble("lat");
                                 longitud = person.getDouble("lng");
+                                idusuario.add(person.getInt("idusuario"));
 
                                 imag = person.getString("imagen");
                                 String distauxiliar="";
@@ -247,6 +250,7 @@ public class categoria_result extends AppCompatActivity {
                             }
 
                             //datos para grid
+                            idusuarios=idusuario;
                             nombres=nombrespre;
                             profesiones=profesionespre;
                             ciudades=ciudadespre;
@@ -281,6 +285,7 @@ public class categoria_result extends AppCompatActivity {
                                     vete.putExtra("telefono",telefonos.get(position));
                                     vete.putExtra("latitud",latitudes.get(position));
                                     vete.putExtra("longitud",longitudes.get(position));
+                                    vete.putExtra("idusuario",idusuarios.get(position));
 
                                     vete.putExtra("distance",distancespre.get(position));
 

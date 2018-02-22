@@ -51,7 +51,7 @@ public class cercanos extends Fragment {
     private String jsonResponse;
     String idservidor,cat,nombre,ciudad,estado,descripcion,precio,formapago,experiencia,zonas,reputacion,telefono,imag;
     Double latitud,longitud,distance;
-    public static ArrayList<Integer> images;
+    public static ArrayList<Integer> idusuarios;
     public static ArrayList<String> nombres,profesiones,ciudades,distances,cats;
     public GridView gridView;
 
@@ -149,6 +149,7 @@ public class cercanos extends Fragment {
                         Log.d(TAG, response.toString());
                         try {
                             jsonResponse = "yes";
+
                             final ArrayList<String>idservidores=new ArrayList<>();
                             ArrayList<String> catspre=new ArrayList<>();
                             final ArrayList<String> nombrespre=new ArrayList<>();
@@ -166,44 +167,33 @@ public class cercanos extends Fragment {
                             final ArrayList<String> profesionespre=new ArrayList<>();
                             final ArrayList<String> distancespre=new ArrayList<>();
                             final ArrayList<String> imagenes = new ArrayList<>();
+                            final ArrayList<Integer> idusuario=new ArrayList<>();
 
                             for (int i = 0; i < response.length(); i++) {
                                 JSONObject person = (JSONObject) response
                                         .get(i);
-                                idservidor = person.getString("idservidor");
-                                cat = person.getString("cat");
-                                nombre = person.getString("nombre");
-                                ciudad = person.getString("ciudad");
-                                estado = person.getString("estado");
-                                descripcion = person.getString("descripcion");
-                                precio = person.getString("precio");
-                                formapago = person.getString("formapago");
-                                experiencia = person.getString("experiencia");
-                                zonas = person.getString("zonas");
-                                reputacion = person.getString("reputacion");
-                                telefono = person.getString("telefono");
-                                latitud = person.getDouble("lat");
-                                longitud = person.getDouble("lng");
+
                                 distance = person.getDouble("distance");
-                                imag = person.getString("imagen");
                                 String distauxiliar= distance.toString().substring(0,3);
 
-                                idservidores.add(idservidor);
-                                catspre.add(cat);
-                                nombrespre.add(nombre);
-                                ciudadespre.add(ciudad);
-                                estados.add(estado);
-                                descripciones.add(descripcion);
-                                precios.add(precio);
-                                formapagos.add(formapago);
-                                experiencias.add(experiencia);
-                                zonass.add(zonas);
-                                profesionespre.add(reputacion); //ESTE ES REPUTACIOOOONNN
-                                telefonos.add(telefono);
-                                latitudes.add(latitud);
-                                longitudes.add(longitud);
+                                idservidores.add(person.getString("idservidor"));
+                                catspre.add(person.getString("cat"));
+                                nombrespre.add(person.getString("nombre"));
+                                ciudadespre.add(person.getString("ciudad"));
+                                estados.add(person.getString("estado"));
+                                descripciones.add(person.getString("descripcion"));
+                                precios.add(person.getString("precio"));
+                                formapagos.add(person.getString("formapago"));
+                                experiencias.add(person.getString("experiencia"));
+                                zonass.add(person.getString("zonas"));
+                                profesionespre.add(person.getString("reputacion")); //ESTE ES REPUTACIOOOONNN
+                                telefonos.add(person.getString("telefono"));
+                                latitudes.add(person.getDouble("lat"));
+                                longitudes.add(person.getDouble("lng"));
                                 distancespre.add(distauxiliar);
-                                imagenes.add(imag);
+                                imagenes.add(person.getString("imagen"));
+                                idusuario.add(person.getInt("idusuario"));
+
                             }
                             //datos para grid
                             nombres=nombrespre;
@@ -211,6 +201,7 @@ public class cercanos extends Fragment {
                             ciudades=ciudadespre;
                             distances=distancespre;
                             cats=catspre;
+                            idusuarios=idusuario;
                             //datos para intent
                             gridView.setAdapter(new ImageAdapter(getContext(),
                                     nombres,imagenes,profesiones,ciudades,distances,cats));
@@ -235,6 +226,7 @@ public class cercanos extends Fragment {
                                     vete.putExtra("latitud",latitudes.get(position));
                                     vete.putExtra("longitud",longitudes.get(position));
                                     vete.putExtra("distance",distancespre.get(position));
+                                    vete.putExtra("idusuario",idusuario.get(position));
                                     startActivity(vete);
                                 }
                             });
