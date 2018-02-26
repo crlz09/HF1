@@ -27,6 +27,7 @@ public class perfil extends AppCompatActivity {
     //Linear layout holding the Edit submenu
     private LinearLayout layoutFabEdit;
     private LinearLayout layoutFabPhoto;
+    int iduser;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +36,14 @@ public class perfil extends AppCompatActivity {
         setSupportActionBar(toolbar);
         this.setTitle("Perfil del anunciante");
         final FabSpeedDial fabSpeedDial = (FabSpeedDial) findViewById(R.id.fabSpeedDial);
+        iduser=getIntent().getExtras().getInt("idusuario");
+        Toast.makeText(this, ""+iduser, Toast.LENGTH_SHORT).show();
+
+
+
+
+
+
         fabSpeedDial.setMenuListener(new FabSpeedDial.MenuListener() {
 
             @Override
@@ -75,6 +84,7 @@ public class perfil extends AppCompatActivity {
 
 
                 return true;
+
             }
 
             @Override

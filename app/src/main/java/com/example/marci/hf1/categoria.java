@@ -24,6 +24,8 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import java.util.ArrayList;
+
 public class categoria extends AppCompatActivity implements OnMapReadyCallback {
     Double lat, lon,latitud,longitud;
     TextView tvdescripcion,tel1,tel2,ubi1,ubi2,correo1,correo2, tvHotCall;
@@ -32,11 +34,13 @@ public class categoria extends AppCompatActivity implements OnMapReadyCallback {
     TextView tvciudad,tvprecio,tvformapago,tvexperiencia,tvfechapub,tvzonas;
     RelativeLayout hotCall;
     RatingBar ratingBar;
-
+    int idusuario;
     private GoogleMap mMap;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
        // MainActivity mainActivity = new MainActivity();
+
 
         lat=MainActivity.lat;
         lon=MainActivity.lon;
@@ -58,6 +62,7 @@ public class categoria extends AppCompatActivity implements OnMapReadyCallback {
          longitud = getIntent().getExtras().getDouble("longitud");
         String distance = getIntent().getExtras().getString("distance");
         String idimagen = getIntent().getExtras().getString("imagen");
+        idusuario=getIntent().getExtras().getInt("idusuario");
 
        /* vete.putExtra("idservidor",idservidores.get(position));
         vete.putExtra("cat",cats.get(position));
@@ -112,7 +117,7 @@ public class categoria extends AppCompatActivity implements OnMapReadyCallback {
             public void onClick(View view) {
 
                 Intent vete = new Intent(getApplicationContext(),perfil.class);
-
+                vete.putExtra("idusuario",idusuario);
                 startActivity(vete);
 //
 //                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
@@ -160,6 +165,7 @@ public class categoria extends AppCompatActivity implements OnMapReadyCallback {
 
                Intent vete = new Intent(getApplicationContext(),comentarios.class);
               //pasar idpub para cargar comentarios de esa pub (?)
+               vete.putExtra("idusuario",idusuario);
                startActivity(vete);
            }
        });
