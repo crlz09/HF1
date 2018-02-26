@@ -40,8 +40,6 @@ public class categoria extends AppCompatActivity implements OnMapReadyCallback {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
        // MainActivity mainActivity = new MainActivity();
-
-
         lat=MainActivity.lat;
         lon=MainActivity.lon;
      //   Toast.makeText(getApplicationContext(), ""+lat+"//"+lon, Toast.LENGTH_SHORT).show();
