@@ -46,6 +46,7 @@
             app:civ_border_width="2dp" />
 
         <TextView
+            android:id="@+id/tvNombre"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -54,15 +55,6 @@
             android:text="Elon Musk"
             android:textColor="#FFFFFF"
             android:textSize="26sp" />
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:paddingBottom="@dimen/nav_header_vertical_spacing"
-            android:shadowColor="@color/grisBotones"
-            android:text="Maracaibo - Zulia"
-            android:textColor="#FFFFFF"
-            android:textSize="14sp" />
 
     </LinearLayout>
 
@@ -230,53 +222,20 @@
             android:textColor="#212121" />
 <!--aqui ver como meter los inflate segun las habilidades que tenga-->
 
-
-        <TextView
-            android:textAlignment="inherit"
+        <LinearLayout
+            android:id="@+id/LLRaizHabilidades"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/tvHabilidades"
-            android:layout_marginLeft="@dimen/activity_horizontal_margin"
-            android:layout_marginStart="@dimen/activity_horizontal_margin"
-            android:layout_marginTop="8dp"
             android:layout_toEndOf="@id/ivHabilidades"
             android:layout_toRightOf="@id/ivHabilidades"
-            android:text="ѻ Computación"
-            android:id="@+id/tvHabilidad"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            android:textColor="#727272" />
-
-        <TextView
-            android:textAlignment="inherit"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/tvHabilidad"
-            android:layout_marginLeft="@dimen/activity_horizontal_margin"
-            android:layout_marginStart="@dimen/activity_horizontal_margin"
-            android:layout_marginTop="8dp"
-            android:layout_toEndOf="@id/ivHabilidades"
-            android:layout_toRightOf="@id/ivHabilidades"
-            android:text="ѻ Administración de Redes"
-            android:id="@+id/tvHabilidad2"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            android:textColor="#727272" />
-
-        <TextView
-            android:textAlignment="inherit"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/tvHabilidad2"
-            android:layout_marginLeft="@dimen/activity_horizontal_margin"
-            android:layout_marginStart="@dimen/activity_horizontal_margin"
-            android:layout_marginTop="8dp"
-            android:layout_toEndOf="@id/ivHabilidades"
-            android:layout_toRightOf="@id/ivHabilidades"
-            android:text="ѻ Administración de Servidores"
-            android:id="@+id/tvHabilidad3"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            android:textColor="#727272" />
+            android:orientation="vertical">
 
 
+
+
+
+        </LinearLayout>
 
     </RelativeLayout>
 
@@ -312,23 +271,29 @@
             android:textColor="#212121" />
         <!--aqui ver como meter los inflate segun las habilidades que tenga-->
 
-
-        <TextView
-            android:textAlignment="inherit"
+        <LinearLayout
+            android:id="@+id/LLRaizEstudios"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/tvEstudios"
-            android:layout_marginLeft="@dimen/activity_horizontal_margin"
-            android:layout_marginStart="@dimen/activity_horizontal_margin"
-            android:layout_marginTop="8dp"
             android:layout_toEndOf="@id/ivEstudios"
-            android:layout_toRightOf="@id/ivEstudios"
-            android:text="ѻ Bachillerato"
-            android:id="@+id/tvEstudio1"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            android:textColor="#727272" />
+            android:layout_toRightOf="@id/ivEstudios">
+
+            <TextView
+                android:id="@+id/tvEstudio1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                android:layout_marginTop="8dp"
+
+                android:text="ѻ Bachillerato"
+                android:textAlignment="inherit"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textColor="#727272" />
 
 
+        </LinearLayout>
 
 
     </RelativeLayout>

@@ -34,13 +34,11 @@
             android:name=".splash"
             android:label="Splash"
             android:theme="@style/AppTheme.NoActionBar">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
         <activity
             android:name=".perguntas"
@@ -80,16 +78,21 @@
         <activity
             android:name=".Login"
             android:label="@string/title_activity_login"
-            android:theme="@style/AppTheme.NoActionBar">
-                   </activity>
-        <activity android:name=".LoginActivity">
-
-
-        </activity>
-
-
-
-        <activity android:name=".SignupActivity"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".SignupActivity" />
+        <activity
+            android:name=".MisAnuncios"
+            android:label="@string/title_activity_mis_anuncios"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".MisServicios"
+            android:label="@string/title_activity_mis_servicios"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".MiCuenta"
+            android:label="@string/title_activity_mi_cuenta"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
