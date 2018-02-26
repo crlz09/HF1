@@ -108,7 +108,7 @@ public class categoria extends AppCompatActivity implements OnMapReadyCallback {
 //        descripcion.setText("Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam magni consequatur architecto nobis neque atque, officia laudantium cum dolore tempora eius nam repudiandae blanditiis consectetur");
 
 
-        Glide.with(getApplicationContext()).load(idimagen).override(200,180).centerCrop().into(ivperfil);
+        Glide.with(getApplicationContext()).load(idimagen).centerCrop().into(ivperfil);
 
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
