@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/coordinator"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/black"
+    app:layout_scrollFlags="enterAlways">
+
+
+    <GridView
+        android:paddingTop="@dimen/nav_header_vertical_spacing"
+        android:id="@+id/grid"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:columnWidth="180dp"
+        android:horizontalSpacing="2dp"
+        android:numColumns="2"
+        android:paddingLeft="2dp"
+        android:verticalSpacing="-20dp" />
+
+
+</android.support.design.widget.CoordinatorLayout>
