@@ -41,8 +41,11 @@ public class perfil extends AppCompatActivity {
     // json object response url
     private String urlJsonObj = "https://api.androidhive.info/volley/person_object.json";
     private String urlJsonArry = "http://www.ksfactory.com.ve/cercanos.php?cercat=&cat=";
-    private String urlPerfil="http://www.ksfactory.com.ve/cercanos.php?perfil=&id=";
-    private String urlHabilidades="http://www.ksfactory.com.ve/cercanos.php?habilidad=&id=";
+    private String urlPerfil="http://www.ksfactory.com.ve/cercanos.php?perfil_hab=&id=1";
+    private String urlCantidad="http://www.ksfactory.com.ve/cercanos.php?rep_cant=&id=1";
+
+
+
     private static String TAG = MainActivity.class.getSimpleName();
     private ProgressDialog pDialog;
     private String jsonResponse;
@@ -126,8 +129,8 @@ public class perfil extends AppCompatActivity {
         pDialog = new ProgressDialog(this);
         pDialog.setMessage("Filtrando cercanos...");
         pDialog.setCancelable(false);
-        makeJsonArrayRequest(urlPerfil+iduser);
-        makeJsonArrayRequest(urlHabilidades+iduser);
+        makeJsonArrayRequest(urlPerfil+iduser,0);
+        makeJsonArrayRequest(urlCantidad+iduser,1);
     }
     //dialog
     private void showpDialog() {
@@ -139,7 +142,7 @@ public class perfil extends AppCompatActivity {
         if (pDialog.isShowing())
             pDialog.dismiss();
     }
-    private void makeJsonArrayRequest(final String url) {
+    private void makeJsonArrayRequest(final String url, final int tipo) {
 
         showpDialog();
 
@@ -162,7 +165,7 @@ public class perfil extends AppCompatActivity {
                             final ArrayList<String> idservidores=new ArrayList<>();
 
 
-                            if(url.contains("http://www.ksfactory.com.ve/cercanos.php?perfil=&id="))
+                            if(tipo==0)
                             {   //capturo los datos de pefil
 
 
@@ -171,6 +174,9 @@ public class perfil extends AppCompatActivity {
                                 habilidadesde=findViewById(R.id.tvHabilidades);
                                 nombre=findViewById(R.id.tvNombre);
                                 perfilimage=findViewById(R.id.profile_image);
+
+                                ArrayList<String> habilidad = new ArrayList<>();
+                                ArrayList<String> estudio = new ArrayList<>();
 
                                 for (int i = 0; i < response.length(); i++) {
 
@@ -181,23 +187,6 @@ public class perfil extends AppCompatActivity {
                                     acercade.setText("Acerca de "+ person.getString("nombre"));
                                     habilidadesde.setText("Habilidades de "+ person.getString("nombre"));
                                     Glide.with(getApplicationContext()).load(person.getString("imagen")).centerCrop().into(perfilimage);
-                                                                    }
-
-
-
-
-
-
-                            } else if(url.contains("http://www.ksfactory.com.ve/cercanos.php?habilidad=&id=")) {
-                                //CAPTURO DATOS DE HABILIDADES
-
-                                ArrayList<String> habilidad = new ArrayList<>();
-                                ArrayList<String> estudio = new ArrayList<>();
-
-                                for (int i = 0; i < response.length(); i++) {
-
-                                    JSONObject person = (JSONObject) response
-                                            .get(i);
                                     String desc = person.getString("habilidad");
                                     String tipo = person.getString("tipo");
 
@@ -206,33 +195,56 @@ public class perfil extends AppCompatActivity {
                                     } else {
                                         estudio.add(desc);
                                     }
+                                                                    }
+
+
+
+
+
+
+                            } else if(tipo==1) {
+
+                                TextView valoracion= findViewById(R.id.valorTV);
+                                TextView publicaciones=findViewById(R.id.TVPublicaciones);
+                                for (int i = 0; i < response.length(); i++) {
+
+                                    JSONObject person = (JSONObject) response
+                                            .get(i);
+                                    valoracion.setText( person.getString("SUMA"));
+                                    publicaciones.setText( person.getString("PUBLICACIONES")
+                                            .substring(0,3)+" / 5");
+
+
 
                                 }
-                                raizestudios= findViewById(R.id.LLRaizEstudios);
-                                raizhabilidades= findViewById(R.id.LLRaizHabilidades);
 
-                                LinearLayout texto = (LinearLayout) LayoutInflater.from(getApplicationContext()).inflate(R.layout.textforprofile, null,false);
+
+
+                            }
+                                //CAPTURO DATOS DE HABILIDADES
+
+       /*                         raizestudios = findViewById(R.id.LLRaizEstudios);
+                                raizhabilidades = findViewById(R.id.LLRaizHabilidades);
+
+                                LinearLayout texto = (LinearLayout) LayoutInflater.from(getApplicationContext()).inflate(R.layout.textforprofile, null, false);
                                 LinearLayout base = texto.findViewById(R.id.LLBase);
                                 TextView txt = base.findViewById(R.id.txt);
-                               /* txt.setText("HOLA");
-                                raizhabilidades.addView(texto);
-*/
+                                txt.setText(txt.getText() + " OBRERO");
+                                raizhabilidades.addView(texto);*/
 
 
 
-                               for(int i=0; i<estudio.size(); i++){
+/*                               for(int i=0; i<estudio.size(); i++){
                         txt.setText(estudio.get(i));
                         raizestudios.addView(texto);
 
                     }
 
-                 /*               for(int i=0; i<habilidad.size();i++) {
+                                for(int i=0; i<habilidad.size();i++) {
                         txt.setText(habilidad.get(i));
                         raizhabilidades.addView(texto);
-                    }*/
-
-                }
-
+                    }
+*/
 
 
 

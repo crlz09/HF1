@@ -92,6 +92,10 @@
         <activity
             android:name=".MiCuenta"
             android:label="@string/title_activity_mi_cuenta"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".valoraciones"
+            android:label="@string/title_activity_valoraciones"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

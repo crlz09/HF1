@@ -71,7 +71,9 @@
         <include
             layout="@layout/item_divider_vertical"
             android:visibility="invisible"></include>
+
         <LinearLayout
+            android:id="@+id/LLValoracion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="4"
@@ -79,50 +81,54 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/valorTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:shadowColor="@color/grisBotones"
                 android:text="8.5 / 10"
                 android:textColor="#FFFFFF"
-                android:textSize="22sp"
-                android:layout_gravity="center"/>
+                android:textSize="22sp" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:shadowColor="@color/grisBotones"
                 android:text="Valoración"
                 android:textColor="#FFFFFF"
-                android:textSize="16sp"
-                android:layout_gravity="center"/>
+                android:textSize="16sp" />
 
         </LinearLayout>
 
         <include layout="@layout/item_divider_vertical"></include>
 
         <LinearLayout
+            android:id="@+id/LLPublicaciones"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="4"
             android:gravity="center"
-            android:orientation="vertical"
-            >
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/TVPublicaciones"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:shadowColor="@color/grisBotones"
+                android:text="11"
+                android:textColor="#FFFFFF"
+                android:textSize="22sp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:shadowColor="@color/grisBotones"
-                android:text="11"
-                android:textColor="#FFFFFF"
-                android:textSize="22sp"
-                android:layout_gravity="center"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:shadowColor="@color/grisBotones"
                 android:text="Publicaciones"
                 android:textColor="#FFFFFF"
-                android:textSize="16sp"
-                android:layout_gravity="center"/>
+                android:textSize="16sp" />
 
         </LinearLayout>
 
