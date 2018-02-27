@@ -277,20 +277,9 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/tvEstudios"
             android:layout_toEndOf="@id/ivEstudios"
+            android:orientation="vertical"
             android:layout_toRightOf="@id/ivEstudios">
 
-            <TextView
-                android:id="@+id/tvEstudio1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/activity_horizontal_margin"
-                android:layout_marginStart="@dimen/activity_horizontal_margin"
-                android:layout_marginTop="8dp"
-
-                android:text="ѻ Bachillerato"
-                android:textAlignment="inherit"
-                android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                android:textColor="#727272" />
 
 
         </LinearLayout>

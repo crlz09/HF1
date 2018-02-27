@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -70,8 +71,7 @@ public class perfil extends AppCompatActivity {
         final FabSpeedDial fabSpeedDial = (FabSpeedDial) findViewById(R.id.fabSpeedDial);
         iduser = getIntent().getExtras().getInt("idusuario");
         Toast.makeText(this, "" + iduser, Toast.LENGTH_SHORT).show();
-         raizestudios= findViewById(R.id.LLRaizEstudios);
-         raizhabilidades= findViewById(R.id.LLRaizHabilidades);
+
 
 
         fabSpeedDial.setMenuListener(new FabSpeedDial.MenuListener() {
@@ -123,6 +123,9 @@ public class perfil extends AppCompatActivity {
             }
         });
 
+        pDialog = new ProgressDialog(this);
+        pDialog.setMessage("Filtrando cercanos...");
+        pDialog.setCancelable(false);
         makeJsonArrayRequest(urlPerfil+iduser);
         makeJsonArrayRequest(urlHabilidades+iduser);
     }
@@ -185,7 +188,7 @@ public class perfil extends AppCompatActivity {
 
 
 
-                            } else if(url.contains("http://www.ksfactory.com.ve/cercanos.php?habilidad=&id=")){
+                            } else if(url.contains("http://www.ksfactory.com.ve/cercanos.php?habilidad=&id=")) {
                                 //CAPTURO DATOS DE HABILIDADES
 
                                 ArrayList<String> habilidad = new ArrayList<>();
@@ -195,30 +198,40 @@ public class perfil extends AppCompatActivity {
 
                                     JSONObject person = (JSONObject) response
                                             .get(i);
-                                    String desc= person.getString("habilidad");
-                                    String tipo= person.getString("tipo");
-                                  if(tipo.equals("HABILIDAD")){
-                                      habilidad.add(desc);
-                                  } else {estudio.add(desc);}
+                                    String desc = person.getString("habilidad");
+                                    String tipo = person.getString("tipo");
+
+                                    if (tipo.equals("HABILIDAD")) {
+                                        habilidad.add(desc);
+                                    } else {
+                                        estudio.add(desc);
+                                    }
 
                                 }
+                                raizestudios= findViewById(R.id.LLRaizEstudios);
+                                raizhabilidades= findViewById(R.id.LLRaizHabilidades);
 
-                                LinearLayout texto = (LinearLayout) LayoutInflater.from(getApplicationContext()).inflate(R.layout.textforprofile, null);
+                                LinearLayout texto = (LinearLayout) LayoutInflater.from(getApplicationContext()).inflate(R.layout.textforprofile, null,false);
                                 LinearLayout base = texto.findViewById(R.id.LLBase);
-                                TextView txt = texto.findViewById(R.id.txt);
-
-                                for(int i=0; i<estudio.size(); i++){
-                                    txt.setText(estudio.get(i));
-                                    raizestudios.addView(texto);
-                                }
-                                for(int i=0; i<habilidad.size();i++){
-                                    txt.setText(habilidad.get(i));
-                                    raizhabilidades.addView(texto);
-                                }
+                                TextView txt = base.findViewById(R.id.txt);
+                               /* txt.setText("HOLA");
+                                raizhabilidades.addView(texto);
+*/
 
 
-                            }
 
+                               for(int i=0; i<estudio.size(); i++){
+                        txt.setText(estudio.get(i));
+                        raizestudios.addView(texto);
+
+                    }
+
+                 /*               for(int i=0; i<habilidad.size();i++) {
+                        txt.setText(habilidad.get(i));
+                        raizhabilidades.addView(texto);
+                    }*/
+
+                }
 
 
 
