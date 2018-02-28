@@ -37,7 +37,7 @@
             android:text="Categoria"/>
 
         <RatingBar
-            android:id="@+id/ratingBar2"
+            android:id="@+id/ratingBarPub"
             style="?android:attr/ratingBarStyleSmall"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

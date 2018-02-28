@@ -76,7 +76,7 @@ public class categoria_result extends AppCompatActivity implements NavigationVie
         lat=MainActivity.lat;
         this.setTitle(cate);
         pDialog = new ProgressDialog(categoria_result.this);
-        pDialog.setMessage("Filtrando cercanos...");
+        pDialog.setMessage("Cargando publicaciones...");
         pDialog.setCancelable(false);
         makeJsonArrayRequest();
         System.out.println(jsonResponse);
