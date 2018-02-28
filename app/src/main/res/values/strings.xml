@@ -91,4 +91,5 @@
     <string name="title_activity_mis_servicios">MisServicios</string>
     <string name="title_activity_mi_cuenta">MiCuenta</string>
     <string name="title_activity_valoraciones">valoraciones</string>
+    <string name="title_activity_mis_publicaciones">MisPublicaciones</string>
 </resources>

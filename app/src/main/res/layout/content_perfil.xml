@@ -199,6 +199,7 @@
 <include layout="@layout/item_divider"></include>
 
     <RelativeLayout
+        android:id="@+id/relativePrueba"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?attr/selectableItemBackground"
@@ -209,6 +210,7 @@
             android:id="@+id/ivHabilidades"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_centerVertical="true"
@@ -217,16 +219,16 @@
         <TextView
             android:id="@+id/tvHabilidades"
             android:layout_width="wrap_content"
-            android:textAlignment="center"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/activity_horizontal_margin"
             android:layout_marginStart="@dimen/activity_horizontal_margin"
             android:layout_toEndOf="@id/ivHabilidades"
             android:layout_toRightOf="@id/ivHabilidades"
             android:text="Habilidades de Elon:"
+            android:textAlignment="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="#212121" />
-<!--aqui ver como meter los inflate segun las habilidades que tenga-->
+        <!--aqui ver como meter los inflate segun las habilidades que tenga-->
 
         <LinearLayout
             android:id="@+id/LLRaizHabilidades"
@@ -236,9 +238,6 @@
             android:layout_toEndOf="@id/ivHabilidades"
             android:layout_toRightOf="@id/ivHabilidades"
             android:orientation="vertical">
-
-
-
 
 
         </LinearLayout>

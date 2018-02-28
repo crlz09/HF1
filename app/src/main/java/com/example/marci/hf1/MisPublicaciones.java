@@ -8,12 +8,12 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Toast;
 
-public class valoraciones extends AppCompatActivity {
+public class MisPublicaciones extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_valoraciones);
+        setContentView(R.layout.activity_mis_publicaciones);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -26,17 +26,8 @@ public class valoraciones extends AppCompatActivity {
             }
         });*/
 
-
-
-
         int iduser=getIntent().getExtras().getInt("iduser");
-
         Toast.makeText(this, ""+iduser, Toast.LENGTH_SHORT).show();
-
-
-
-
-
     }
 
 }

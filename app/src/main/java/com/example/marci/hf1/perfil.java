@@ -2,6 +2,7 @@ package com.example.marci.hf1;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.internal.NavigationMenu;
@@ -41,9 +42,9 @@ public class perfil extends AppCompatActivity {
     // json object response url
     private String urlJsonObj = "https://api.androidhive.info/volley/person_object.json";
     private String urlJsonArry = "http://www.ksfactory.com.ve/cercanos.php?cercat=&cat=";
-    private String urlPerfil="http://www.ksfactory.com.ve/cercanos.php?perfil_hab=&id=1";
-    private String urlCantidad="http://www.ksfactory.com.ve/cercanos.php?rep_cant=&id=1";
-
+    private String urlPerfil="http://www.ksfactory.com.ve/cercanos.php?perfil_hab=&id=";
+    private String urlCantidad="http://www.ksfactory.com.ve/cercanos.php?rep_cant=&id=";
+    String mailfinal,numfinal;
 
 
     private static String TAG = MainActivity.class.getSimpleName();
@@ -51,11 +52,12 @@ public class perfil extends AppCompatActivity {
     private String jsonResponse;
     CircleImageView perfilimage;
 
-
+    ArrayList<String> habilidad = new ArrayList<>();
+    ArrayList<String> estudio = new ArrayList<>();
     //boolean flag to know if main FAB is in open or closed state.
     private boolean fabExpanded = false;
     private FloatingActionButton fabSettings;
-    TextView acercade,habilidadesde,descripcion,estudio,nombre,tlf;
+    TextView acercade,habilidadesde,descripcion,estudios,nombre,tlf;
 
     //Linear layout holding the Save submenu
     private LinearLayout layoutFabSave;
@@ -73,9 +75,10 @@ public class perfil extends AppCompatActivity {
         this.setTitle("Perfil del anunciante");
         final FabSpeedDial fabSpeedDial = (FabSpeedDial) findViewById(R.id.fabSpeedDial);
         iduser = getIntent().getExtras().getInt("idusuario");
-        Toast.makeText(this, "" + iduser, Toast.LENGTH_SHORT).show();
+       // Toast.makeText(this, "" + iduser, Toast.LENGTH_SHORT).show();
 
-
+        raizhabilidades= findViewById(R.id.LLRaizHabilidades);
+        raizestudios=findViewById(R.id.LLRaizEstudios);
 
         fabSpeedDial.setMenuListener(new FabSpeedDial.MenuListener() {
 
@@ -91,20 +94,20 @@ public class perfil extends AppCompatActivity {
                 String phone = "04146525464";
                 if (menuItem.getTitle().toString().equals("Llamar")) {
 
-                    Intent intent = new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", phone, null));
+                    Intent intent = new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", numfinal, null));
                     startActivity(intent);
 
                 }
                 if (menuItem.getTitle().toString().equals("SMS")) {
                     Intent intent = new Intent(Intent.ACTION_SENDTO);
-                    intent.putExtra("address", phone);
+                    intent.putExtra("address", numfinal);
                     intent.putExtra("sms_body", "He visto tu publicación en HazloFacil, ");
                     intent.setData(Uri.parse("sms:"));
                     startActivity(intent);
 
                 }
                 if (menuItem.getTitle().toString().equals("Correo")) {
-                    String to = "carlosjmr12@gmail.com";
+                    String to = mailfinal;
                     String subject = "Vi tu anuncio en HazloFacil";
                     String body = "Vi tu anuncio en HazloFacil, ";
                     String mailTo = "mailto:" + to +
@@ -129,8 +132,33 @@ public class perfil extends AppCompatActivity {
         pDialog = new ProgressDialog(this);
         pDialog.setMessage("Filtrando cercanos...");
         pDialog.setCancelable(false);
+      //  Toast.makeText(this, "elid: "+iduser, Toast.LENGTH_SHORT).show();
         makeJsonArrayRequest(urlPerfil+iduser,0);
         makeJsonArrayRequest(urlCantidad+iduser,1);
+
+
+        LinearLayout LLValoracion= findViewById(R.id.LLValoracion);
+        LinearLayout LLPublicaciones= findViewById(R.id.LLPublicaciones);
+
+        LLValoracion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent chao = new Intent(getApplicationContext(), valoraciones.class);
+                chao.putExtra("iduser",iduser);
+                startActivity(chao);
+            }
+        });
+
+        LLPublicaciones.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent chao = new Intent(getApplicationContext(), MisPublicaciones.class);
+                chao.putExtra("iduser",iduser);
+                startActivity(chao);
+            }
+        });
+
+
     }
     //dialog
     private void showpDialog() {
@@ -175,9 +203,6 @@ public class perfil extends AppCompatActivity {
                                 nombre=findViewById(R.id.tvNombre);
                                 perfilimage=findViewById(R.id.profile_image);
 
-                                ArrayList<String> habilidad = new ArrayList<>();
-                                ArrayList<String> estudio = new ArrayList<>();
-
                                 for (int i = 0; i < response.length(); i++) {
 
                                     JSONObject person = (JSONObject) response
@@ -189,17 +214,26 @@ public class perfil extends AppCompatActivity {
                                     Glide.with(getApplicationContext()).load(person.getString("imagen")).centerCrop().into(perfilimage);
                                     String desc = person.getString("habilidad");
                                     String tipo = person.getString("tipo");
+                                    mailfinal= person.getString("email");
+                                    numfinal=person.getString("telefono");
 
                                     if (tipo.equals("HABILIDAD")) {
                                         habilidad.add(desc);
+                                        LayoutInflater inflater = LayoutInflater.from(getApplicationContext());
+                                        View inflatedLayout = inflater.inflate(R.layout.textforprofile,null);
+                                        TextView textView=inflatedLayout.findViewById(R.id.txt);
+                                        textView.setText(textView.getText()+desc);
+                                        raizhabilidades.addView(inflatedLayout);
+
                                     } else {
                                         estudio.add(desc);
+                                        LayoutInflater inflater = LayoutInflater.from(getApplicationContext());
+                                        View inflatedLayout = inflater.inflate(R.layout.textforprofile,null);
+                                        TextView textView=inflatedLayout.findViewById(R.id.txt);
+                                        textView.setText(textView.getText()+desc);
+                                        raizestudios.addView(inflatedLayout);
                                     }
                                                                     }
-
-
-
-
 
 
                             } else if(tipo==1) {
@@ -210,48 +244,30 @@ public class perfil extends AppCompatActivity {
 
                                     JSONObject person = (JSONObject) response
                                             .get(i);
-                                    valoracion.setText( person.getString("SUMA"));
-                                    publicaciones.setText( person.getString("PUBLICACIONES")
-                                            .substring(0,3)+" / 5");
-
-
+                                    String suma=person.getString("SUMA");
+                                    String casival= suma.substring(0,3)+" / 5";
+                                    valoracion.setText(casival);
+                                    publicaciones.setText( person.getString("PUBLICACIONES"));
 
                                 }
 
-
-
                             }
-                                //CAPTURO DATOS DE HABILIDADES
 
-       /*                         raizestudios = findViewById(R.id.LLRaizEstudios);
-                                raizhabilidades = findViewById(R.id.LLRaizHabilidades);
-
-                                LinearLayout texto = (LinearLayout) LayoutInflater.from(getApplicationContext()).inflate(R.layout.textforprofile, null, false);
-                                LinearLayout base = texto.findViewById(R.id.LLBase);
-                                TextView txt = base.findViewById(R.id.txt);
-                                txt.setText(txt.getText() + " OBRERO");
-                                raizhabilidades.addView(texto);*/
-
-
-
-/*                               for(int i=0; i<estudio.size(); i++){
-                        txt.setText(estudio.get(i));
-                        raizestudios.addView(texto);
-
-                    }
-
-                                for(int i=0; i<habilidad.size();i++) {
-                        txt.setText(habilidad.get(i));
-                        raizhabilidades.addView(texto);
-                    }
-*/
+/*                            LayoutInflater inflater = LayoutInflater.from(getApplicationContext());
+                            View inflatedLayout = inflater.inflate(R.layout.textforprofile,null,false);
+                            TextView textView=inflatedLayout.findViewById(R.id.txt);
+                                raizhabilidades.removeAllViews();
+                            for (int i=0; i<habilidad.size(); i++){
+                                textView.setText(habilidad.get(i));
+                                raizhabilidades.addView(textView);
+                            }*/
 
 
 
-                            //datos para intent
 
+                        }
 
-                        } catch (JSONException e) {
+                        catch (JSONException e) {
                             e.printStackTrace();
                             Toast.makeText(getApplicationContext(),
                                     "Error: " + e.getMessage(),

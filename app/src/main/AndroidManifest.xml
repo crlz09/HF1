@@ -96,6 +96,10 @@
         <activity
             android:name=".valoraciones"
             android:label="@string/title_activity_valoraciones"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".MisPublicaciones"
+            android:label="@string/title_activity_mis_publicaciones"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
